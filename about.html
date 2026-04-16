@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Jana</title>
+  <meta name="description" content="Jana is a UX/UI designer based in Toronto. Learn about her background, disciplines, and process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Shared -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- Page -->
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Jana</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"    class="nav__link">Home</a></li>
+        <li><a href="projects.html" class="nav__link">Work</a></li>
+        <li><a href="about.html"    class="nav__link nav__link--active">About</a></li>
+        <li><a href="contact.html"  class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu">
+    <ul class="nav__mobile-links" role="list">
+      <li><a href="index.html"    class="nav__mobile-link">Home</a></li>
+      <li><a href="projects.html" class="nav__mobile-link">Work</a></li>
+      <li><a href="about.html"    class="nav__mobile-link nav__mobile-link--active">About</a></li>
+      <li><a href="contact.html"  class="nav__mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── About Hero ── -->
+    <section class="about-hero">
+      <div class="container">
+        <span class="label about-hero__kicker" data-reveal>About</span>
+        <p class="about-hero__intro" data-reveal="d1">
+          Jana is a UX/UI designer who believes that the best interfaces are the ones
+          <em>you never have to think about.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ── About Body ── -->
+    <section class="section">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Bio -->
+          <div class="about-bio" data-reveal>
+            <p>
+              Currently studying design in Toronto, I work at the intersection of visual
+              design and user experience — building interfaces that are not just beautiful,
+              but <strong>deeply considered</strong>. My process starts with understanding
+              people: their needs, their frustrations, and the moments where a product can
+              make something genuinely easier.
+            </p>
+            <p>
+              <strong>I think in systems.</strong> Whether it's a component library or a
+              navigation flow, I care about how the pieces fit together. A single screen
+              is only as good as the logic that leads you to it — and the understanding
+              of the person using it.
+            </p>
+            <p>
+              Outside of screen-based work, I draw a lot, read about typography, and spend
+              too much time thinking about restaurant menus. I believe design is everywhere —
+              and that paying close attention to the everyday world makes you a sharper,
+              more empathetic designer.
+            </p>
+            <p>
+              I'm currently looking for <strong>internship and junior design opportunities</strong>
+              where I can contribute meaningfully and keep growing fast.
+            </p>
+            <div class="about-bio__cta">
+              <a href="contact.html" class="btn btn--primary">Let's Talk</a>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="about-sidebar" data-reveal="d2">
+
+            <div class="about-sidebar__block">
+              <p class="about-sidebar__heading">Disciplines</p>
+              <ul class="about-sidebar__list" role="list">
+                <li class="about-sidebar__item">UX Research</li>
+                <li class="about-sidebar__item">Interface Design</li>
+                <li class="about-sidebar__item">Interaction Design</li>
+                <li class="about-sidebar__item">Design Systems</li>
+                <li class="about-sidebar__item">Responsive Web Design</li>
+                <li class="about-sidebar__item">Prototyping &amp; Testing</li>
+              </ul>
+            </div>
+
+            <div class="about-sidebar__block">
+              <p class="about-sidebar__heading">Tools</p>
+              <ul class="about-sidebar__list" role="list">
+                <li class="about-sidebar__item">Figma</li>
+                <li class="about-sidebar__item">HTML &amp; CSS</li>
+                <li class="about-sidebar__item">JavaScript</li>
+                <li class="about-sidebar__item">Maze / Useberry</li>
+                <li class="about-sidebar__item">Notion</li>
+              </ul>
+            </div>
+
+            <div class="about-sidebar__block">
+              <p class="about-sidebar__heading">Currently</p>
+              <ul class="about-sidebar__list" role="list">
+                <li class="about-sidebar__item">Studying design in Toronto</li>
+                <li class="about-sidebar__item">Building this portfolio</li>
+                <li class="about-sidebar__item">Open to internships</li>
+              </ul>
+            </div>
+
+            <div class="about-sidebar__block">
+              <p class="about-sidebar__heading">Education</p>
+              <ul class="about-sidebar__list" role="list">
+                <li class="about-sidebar__item">B.Des, Digital Media Design</li>
+                <li class="about-sidebar__item about-sidebar__muted">Expected 2027</li>
+              </ul>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy">© 2026 Jana. All rights reserved.</span>
+      <nav class="footer__links" aria-label="Social links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Dribbble</a>
+        <a href="#" class="footer__link">GitHub</a>
+        <a href="mailto:jana@example.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

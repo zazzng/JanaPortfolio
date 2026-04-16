@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health App Redesign — Jana</title>
+  <meta name="description" content="Case study: Health & Wellness App Redesign — reducing cognitive load and improving habit retention.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Shared -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <!-- Page -->
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Jana</a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html"    class="nav__link">Home</a></li>
+        <li><a href="../projects.html" class="nav__link nav__link--active">Work</a></li>
+        <li><a href="../about.html"    class="nav__link">About</a></li>
+        <li><a href="../contact.html"  class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu">
+    <ul class="nav__mobile-links" role="list">
+      <li><a href="../index.html"    class="nav__mobile-link">Home</a></li>
+      <li><a href="../projects.html" class="nav__mobile-link nav__mobile-link--active">Work</a></li>
+      <li><a href="../about.html"    class="nav__mobile-link">About</a></li>
+      <li><a href="../contact.html"  class="nav__mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── Case Study Hero ── -->
+    <section class="case-hero">
+      <div class="container">
+        <span class="label case-hero__kicker" data-reveal>
+          <a href="../projects.html" style="text-decoration: none; color: inherit;">← Back to Work</a>
+        </span>
+
+        <h1 class="display" style="max-width: 16ch; margin-top: 1.5rem;" data-reveal="d1">
+          Health &amp; Wellness<br>App Redesign
+        </h1>
+
+        <div class="case-hero__meta" data-reveal="d2">
+          <div class="case-meta-item">
+            <span class="case-meta-label">Role</span>
+            <span class="case-meta-value">UX Research, UI Design</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Timeline</span>
+            <span class="case-meta-value">10 weeks, 2025</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Platform</span>
+            <span class="case-meta-value">iOS Mobile</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Tools</span>
+            <span class="case-meta-value">Figma, Maze</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Hero Image ── -->
+    <div style="padding-block: 3rem; border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="case-image" style="aspect-ratio: 16/7;" data-reveal>
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #D9E5DC 0%, #C2D4C8 50%, #D5DCE8 100%);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 01 Overview ── -->
+    <section class="case-section" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">01 — Overview</span>
+        </div>
+        <div class="case-body">
+          <p>
+            <strong>Vitality</strong> is a habit-tracking and wellness app with over 50,000 active users.
+            Despite strong early adoption, the team was seeing significant drop-off after day 7 —
+            users weren't forming lasting habits. My goal was to understand why, and redesign the
+            core experience to better support habit formation.
+          </p>
+          <p>
+            This was a self-initiated case study, exploring real UX problems I identified through
+            public App Store reviews, competitive analysis, and a heuristic evaluation of the
+            existing interface.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 Problem ── -->
+    <section class="case-section case-section--alt" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">02 — Problem</span>
+        </div>
+        <div class="case-body">
+          <p>
+            Users reported feeling <strong>overwhelmed on the home screen</strong> — too many metrics,
+            too many notifications, no clear sense of what to focus on. The app felt like a data
+            dashboard rather than a personal coach.
+          </p>
+
+          <div class="pullquote">
+            <p class="pullquote__text">
+              "I open the app and immediately feel behind. There's so much data but I don't know
+              what it means for me today."
+            </p>
+            <p class="pullquote__attr">— Research participant, age 24</p>
+          </div>
+
+          <p>
+            Secondary analysis revealed the average user was presented with <strong>14 distinct
+            data points</strong> on the home screen — far beyond the cognitive bandwidth for a
+            quick morning check-in. The result was paralysis, not motivation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 Process ── -->
+    <section class="case-section" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">03 — Process</span>
+        </div>
+        <div class="case-body">
+          <p>
+            I conducted <strong>6 remote user interviews</strong> and analyzed 200+ App Store reviews
+            to map the emotional journey through the app. Using affinity mapping, I surfaced three
+            core pain points: cognitive overload, unclear progress signals, and a lack of daily
+            intentionality.
+          </p>
+          <p>
+            From there, I moved into rapid sketching — exploring how "less" could feel like more.
+            The central design hypothesis: <strong>showing one priority at a time</strong>, rather
+            than everything at once, would reduce anxiety and increase follow-through.
+          </p>
+
+          <div class="case-image" data-reveal="d1">
+            <div style="width: 100%; height: 100%; background: linear-gradient(120deg, #E5DDD5 0%, #D9E5DC 100%); display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 0.8125rem; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase;">Affinity Map · Research Synthesis</span>
+            </div>
+          </div>
+
+          <p>
+            I prototyped three variants and ran unmoderated usability tests via Maze with
+            <strong>18 participants</strong>. The winning variant used a "Daily Focus" card
+            as the centrepiece — a single, personalised nudge based on the user's goals and
+            current streak.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 Solution ── -->
+    <section class="case-section case-section--alt" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">04 — Solution</span>
+        </div>
+        <div class="case-body">
+          <p>
+            The redesigned home screen leads with a single <strong>"Today's Focus"</strong> card —
+            one habit, one clear action, one motivational signal. Secondary metrics are collapsed
+            below the fold and surfaced on demand.
+          </p>
+          <p>
+            I also redesigned the <strong>habit completion flow</strong> to include a brief moment
+            of positive reinforcement — a subtle animation and a short, kind message — making each
+            completion feel meaningful rather than mechanical.
+          </p>
+
+          <div class="case-image" data-reveal="d1">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #D5DCE8 0%, #C8D2E2 100%); display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 0.8125rem; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase;">Final Screens · iOS Prototype</span>
+            </div>
+          </div>
+
+          <p>
+            The visual language was deliberately calm — soft backgrounds, generous whitespace,
+            and a type scale that guides the eye without demanding attention. The interface
+            should never compete with the habit itself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 Impact ── -->
+    <section class="case-section" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">05 — Impact</span>
+        </div>
+        <div class="case-body">
+          <p>
+            Usability testing of the final prototype showed meaningful improvement across
+            all key metrics, with participants completing tasks faster and reporting
+            significantly less cognitive strain.
+          </p>
+
+          <div class="impact-grid" data-reveal="d1">
+            <div>
+              <p class="impact-num">+38%</p>
+              <p class="impact-desc">Task completion rate on the day-7 habit check-in flow</p>
+            </div>
+            <div>
+              <p class="impact-num">−52%</p>
+              <p class="impact-desc">Reported feeling of overwhelm (measured via SUS score)</p>
+            </div>
+            <div>
+              <p class="impact-num">4.7<span style="font-size: 1.75rem;">/5</span></p>
+              <p class="impact-desc">Average satisfaction rating in post-test survey</p>
+            </div>
+          </div>
+
+          <p>
+            The redesign demonstrated that <strong>reducing visible complexity</strong> —
+            rather than adding features — was the highest-impact intervention. Good UX
+            often means deciding what to leave out.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Next Project ── -->
+    <section class="next-project" data-reveal>
+      <div class="container">
+        <span class="label" style="display: block; margin-bottom: 1.25rem;">Next Project</span>
+        <a href="../projects.html" class="next-project__link">
+          <h2 class="h2 next-project__title">Campus Event Hub &nbsp;→</h2>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy">© 2026 Jana. All rights reserved.</span>
+      <nav class="footer__links" aria-label="Social links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Dribbble</a>
+        <a href="#" class="footer__link">GitHub</a>
+        <a href="mailto:jana@example.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

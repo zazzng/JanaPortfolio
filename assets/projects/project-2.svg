@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Study Planner UI placeholder image">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae8ff"/>
+      <stop offset="100%" stop-color="#e9d5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g2)"/>
+  <rect x="140" y="120" width="920" height="510" rx="26" fill="#ffffff" opacity="0.92"/>
+  <text x="600" y="330" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="58" fill="#6b21a8">Project 02</text>
+  <text x="600" y="400" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="#374151">Study Planner UI</text>
+</svg>

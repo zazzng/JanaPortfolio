@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Jana</title>
+  <meta name="description" content="A collection of UX/UI projects by Jana spanning research, visual design, and front-end development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Shared -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- Page -->
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Jana</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"    class="nav__link">Home</a></li>
+        <li><a href="projects.html" class="nav__link nav__link--active">Work</a></li>
+        <li><a href="about.html"    class="nav__link">About</a></li>
+        <li><a href="contact.html"  class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu">
+    <ul class="nav__mobile-links" role="list">
+      <li><a href="index.html"    class="nav__mobile-link">Home</a></li>
+      <li><a href="projects.html" class="nav__mobile-link nav__mobile-link--active">Work</a></li>
+      <li><a href="about.html"    class="nav__mobile-link">About</a></li>
+      <li><a href="contact.html"  class="nav__mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── Page Header ── -->
+    <section class="page-header">
+      <div class="container">
+        <span class="label page-header__kicker" data-reveal>Portfolio</span>
+        <h1 class="display page-header__title" data-reveal="d1">Selected Work</h1>
+        <p class="page-header__desc" data-reveal="d2">
+          UX/UI projects spanning research, visual design, and front-end development —
+          each one a different problem, the same level of care.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Filter Bar ── -->
+    <div class="container">
+      <div class="filter-bar" role="group" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ux-research">UX Research</button>
+        <button class="filter-btn" data-filter="ui-design">UI Design</button>
+        <button class="filter-btn" data-filter="web-design">Web Design</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+      </div>
+    </div>
+
+    <!-- ── Projects Grid ── -->
+    <section class="projects-all">
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- 1 — Health App Redesign -->
+          <div class="project-item" data-tags="ux-research">
+            <a href="Project/ForgottenPages.html" class="project-card" data-reveal>
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #D9E5DC 0%, #C8D9CC 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Case Study &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">UX Research</span>
+                  <span class="tag">Mobile</span>
+                </div>
+                <p class="project-card__title">Health &amp; Wellness App Redesign</p>
+                <p class="project-card__desc">Reducing cognitive load and improving daily habit retention through a full product redesign.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 2 — Campus Event Hub -->
+          <div class="project-item" data-tags="web-design branding">
+            <a href="#" class="project-card" data-reveal="d1">
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #E5DDD5 0%, #D9CFC4 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Project &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">Web Design</span>
+                  <span class="tag">Branding</span>
+                </div>
+                <p class="project-card__title">Campus Event Hub</p>
+                <p class="project-card__desc">A landing page concept for promoting student events and simplifying sign-up flows.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 3 — Study Planner Dashboard -->
+          <div class="project-item" data-tags="ui-design">
+            <a href="#" class="project-card" data-reveal>
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #D5DCE8 0%, #C8D2E2 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Project &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">UI Design</span>
+                  <span class="tag">Dashboard</span>
+                </div>
+                <p class="project-card__title">Study Planner Dashboard</p>
+                <p class="project-card__desc">A student productivity dashboard balancing information density with calm, clear visual hierarchy.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 4 — Fintech Analytics -->
+          <div class="project-item" data-tags="ui-design">
+            <a href="#" class="project-card" data-reveal="d1">
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #DDD8E5 0%, #D1CAE0 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Project &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">UI Design</span>
+                  <span class="tag">Data Visualization</span>
+                </div>
+                <p class="project-card__title">Fintech Analytics Interface</p>
+                <p class="project-card__desc">A data-rich financial dashboard designed for clarity under complexity, with a focus on at-a-glance insight.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 5 — Café Brand -->
+          <div class="project-item" data-tags="web-design branding">
+            <a href="#" class="project-card" data-reveal>
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #E8DDD3 0%, #DDD0C4 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Project &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">Web Design</span>
+                  <span class="tag">Branding</span>
+                </div>
+                <p class="project-card__title">Local Café Brand &amp; Website</p>
+                <p class="project-card__desc">End-to-end brand identity and responsive website for a neighbourhood café — from logo to launch.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 6 — Campus Wayfinding -->
+          <div class="project-item" data-tags="ux-research ui-design">
+            <a href="#" class="project-card" data-reveal="d1">
+              <div class="project-card__thumb">
+                <div class="project-card__bg" style="background: linear-gradient(140deg, #E5E3D9 0%, #D9D7CC 100%);"></div>
+                <div class="project-card__overlay">
+                  <span class="project-card__overlay-pill">View Project &nbsp;→</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <div class="project-card__tags">
+                  <span class="tag">UX Research</span>
+                  <span class="tag">UI Design</span>
+                </div>
+                <p class="project-card__title">Campus Wayfinding App</p>
+                <p class="project-card__desc">A mobile wayfinding concept for a university campus, informed by field research and student interviews.</p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy">© 2026 Jana. All rights reserved.</span>
+      <nav class="footer__links" aria-label="Social links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Dribbble</a>
+        <a href="#" class="footer__link">GitHub</a>
+        <a href="mailto:jana@example.com" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

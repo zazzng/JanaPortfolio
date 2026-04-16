@@ -1,0 +1,66 @@
+/* ============================================================
+   PROJECTS — projects.html specific styles
+   ============================================================
+   Sections: Page Header · Filter Bar · Projects Grid
+   ============================================================ */
+
+/* ---- Page Header ---- */
+.page-header {
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header__kicker { margin-bottom: 1.25rem; }
+.page-header__title  { margin-bottom: 1.5rem; }
+
+.page-header__desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 48ch;
+}
+
+/* ---- Filter Bar ---- */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 0.4375rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  cursor: pointer;
+  transition:
+    background var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.filter-btn:hover {
+  background: var(--surface);
+  border-color: #ccc;
+  color: var(--ink-1);
+}
+
+.filter-btn.active {
+  background: var(--ink-1);
+  border-color: var(--ink-1);
+  color: var(--white);
+}
+
+/* ---- Projects Grid wrapper ---- */
+/* The grid itself (.projects-grid) lives in components.css */
+.projects-all { padding-block: 3rem; }
+
+/* Hidden state used by JS filter */
+.project-item.hidden { display: none; }

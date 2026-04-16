@@ -1,0 +1,181 @@
+/* ============================================================
+   BASE — Tokens · Reset · Typography · Layout · Utilities
+   ============================================================
+   Loaded on every page. Contains:
+   - Design tokens (CSS custom properties)
+   - Reset & base element styles
+   - Typography scale (.display, .h1, .h2, .h3, .label)
+   - Layout helpers (.container, .section, hr.divider)
+   - Scroll progress bar
+   - Scroll reveal animation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+/* ---- Design Tokens ---- */
+:root {
+  /* Colors */
+  --white:     #FFFFFF;
+  --off-white: #F8F7F5;
+  --surface:   #F2F1EF;
+  --border:    #E5E4E1;
+  --ink-1:     #1A1918;   /* headings, high-contrast text */
+  --ink-2:     #6B6966;   /* body text */
+  --ink-3:     #A8A6A3;   /* labels, metadata, placeholders */
+
+  /* Fonts */
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Easing */
+  --ease:     cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+
+  /* Durations */
+  --t-fast:   150ms;
+  --t-base:   250ms;
+  --t-slow:   400ms;
+  --t-slower: 600ms;
+
+  /* Layout */
+  --max-w:  1200px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  background-color: var(--white);
+}
+
+img, svg  { display: block; max-width: 100%; }
+a         { color: inherit; }
+button    { font: inherit; cursor: pointer; border: none; background: none; }
+ul, ol    { list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--ink-1);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---- Scroll Progress Bar ---- */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--ink-1);
+  z-index: 9999;
+  transition: width 60ms linear;
+  pointer-events: none;
+}
+
+/* ---- Scroll Reveal ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-out);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — use data-reveal="d1", "d2", "d3", "d4" */
+[data-reveal="d1"] { transition-delay: 80ms; }
+[data-reveal="d2"] { transition-delay: 160ms; }
+[data-reveal="d3"] { transition-delay: 240ms; }
+[data-reveal="d4"] { transition-delay: 320ms; }
+
+/* ---- Typography Scale ---- */
+.display {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ink-1);
+}
+
+/* Italic variant — use <em> inside .display or standalone */
+.display em,
+.display-italic {
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-1);
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.625rem, 2.75vw, 2.375rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+}
+
+.h3 {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-1);
+}
+
+/* Small uppercase label — used for kickers, metadata, section markers */
+.label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---- Layout ---- */
+.container {
+  width: min(var(--max-w), 100% - (var(--gutter) * 2));
+  margin-inline: auto;
+}
+
+/* Standard vertical section padding */
+.section {
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.section--sm {
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}

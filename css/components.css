@@ -1,0 +1,187 @@
+/* ============================================================
+   COMPONENTS — Shared reusable UI pieces
+   ============================================================
+   Loaded on every page. Contains components used in 2+ places:
+   - Buttons (.btn, .btn--primary, .btn--secondary)
+   - Arrow link (.link-arrow)
+   - Tag pill (.tag)
+   - Project cards (.project-card, .projects-grid)
+   ============================================================ */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 100px;
+  transition:
+    background var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--ink-1);
+  color: var(--white);
+  border: 1px solid var(--ink-1);
+}
+
+.btn--primary:hover { background: #333; border-color: #333; }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--ink-1);
+  border: 1px solid var(--border);
+}
+
+.btn--secondary:hover { background: var(--surface); border-color: #ccc; }
+
+/* ---- Arrow link ---- */
+/* Use for "See all →" type text links */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-1);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition:
+    border-color var(--t-fast) var(--ease),
+    gap var(--t-base) var(--ease);
+}
+
+.link-arrow:hover { border-color: var(--ink-2); gap: 0.625rem; }
+
+/* ---- Tag pill ---- */
+/* Small category label used on project cards */
+.tag {
+  display: inline-block;
+  padding: 0.1875rem 0.5625rem;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+/* ---- Project Cards ---- */
+/* Used on: index.html (selected work) + projects.html (full grid) */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition:
+    transform var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.07);
+}
+
+/* Thumbnail — colored background block */
+.project-card__thumb {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card__bg {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--t-slower) var(--ease-out);
+}
+
+.project-card:hover .project-card__bg { transform: scale(1.05); }
+
+/* Hover overlay with "View" pill */
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 25, 24, 0);
+  transition: background var(--t-base) var(--ease);
+}
+
+.project-card__overlay-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.125rem;
+  background: var(--white);
+  color: var(--ink-1);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 100px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity var(--t-base) var(--ease),
+    transform var(--t-base) var(--ease);
+}
+
+.project-card:hover .project-card__overlay        { background: rgba(26, 25, 24, 0.18); }
+.project-card:hover .project-card__overlay-pill   { opacity: 1; transform: translateY(0); }
+
+/* Card body */
+.project-card__body    { padding: 1.25rem 1.375rem 1.5rem; }
+
+.project-card__tags {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.625rem;
+}
+
+.project-card__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-1);
+  margin-bottom: 0.375rem;
+  line-height: 1.35;
+}
+
+.project-card__desc {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+/* Featured modifier — spans full grid width (homepage only) */
+.project-card--featured              { grid-column: 1 / -1; }
+.project-card--featured .project-card__thumb { aspect-ratio: 16 / 7; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .projects-grid                           { grid-template-columns: 1fr; }
+  .project-card--featured                  { grid-column: auto; }
+  .project-card--featured .project-card__thumb { aspect-ratio: 16 / 10; }
+}
