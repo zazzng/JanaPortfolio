@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Health App Redesign — Jana</title>
+  <title>Puzzle Exploration Game — Jana</title>
   <meta name="description" content="Case study: Health & Wellness App Redesign — reducing cognitive load and improving habit retention.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,25 +54,21 @@
         </span>
 
         <h1 class="display" style="max-width: 16ch; margin-top: 1.5rem;" data-reveal="d1">
-          Health &amp; Wellness<br>App Redesign
+          Puzzle Exploration<br>Game Redesign
         </h1>
 
         <div class="case-hero__meta" data-reveal="d2">
           <div class="case-meta-item">
-            <span class="case-meta-label">Role</span>
-            <span class="case-meta-value">UX Research, UI Design</span>
+            <span class="case-meta-label">Keywords</span>
+            <span class="case-meta-value">Game, OOP, Visual Design, Story-driven</span>
           </div>
           <div class="case-meta-item">
             <span class="case-meta-label">Timeline</span>
-            <span class="case-meta-value">10 weeks, 2025</span>
-          </div>
-          <div class="case-meta-item">
-            <span class="case-meta-label">Platform</span>
-            <span class="case-meta-value">iOS Mobile</span>
+            <span class="case-meta-value">4 weeks, 2025</span>
           </div>
           <div class="case-meta-item">
             <span class="case-meta-label">Tools</span>
-            <span class="case-meta-value">Figma, Maze</span>
+            <span class="case-meta-value">VS Code, Procreate, Eclipse, Audacity</span>
           </div>
         </div>
       </div>
@@ -81,8 +77,11 @@
     <!-- ── Hero Image ── -->
     <div style="padding-block: 3rem; border-bottom: 1px solid var(--border);">
       <div class="container">
-        <div class="case-image" style="aspect-ratio: 16/7;" data-reveal>
-          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #D9E5DC 0%, #C2D4C8 50%, #D5DCE8 100%);"></div>
+        <div class="case-image" style="aspect-ratio: unset;" data-reveal>
+          <img
+            src="../assets/ForgottenPages/ForgottenPages-cover.png"
+            alt="Forgotten Pages cover"
+            style="width: 100%; height: auto; display: block;">
         </div>
       </div>
     </div>
@@ -95,52 +94,94 @@
         </div>
         <div class="case-body">
           <p>
-            <strong>Vitality</strong> is a habit-tracking and wellness app with over 50,000 active users.
-            Despite strong early adoption, the team was seeing significant drop-off after day 7 —
-            users weren't forming lasting habits. My goal was to understand why, and redesign the
-            core experience to better support habit formation.
+            <strong>Forgotten Pages</strong> is a third-person simulation game set in a quiet bedroom environment filled with faded objects and scattered memories. The game guides players through the process of helping a girl recover the forgotten password to her diary by exploring her surroundings, collecting symbolic memory tokens. Each token must be returned to its rightful place to reveal a fragment of the password. The goal of the game is to be able to unlock the girl’s diary.
           </p>
           <p>
-            This was a self-initiated case study, exploring real UX problems I identified through
-            public App Store reviews, competitive analysis, and a heuristic evaluation of the
-            existing interface.
+            This was a SFU SIAT 2nd-year OOP project design and development sprint to create a game prototype from scratch. The final prototype was a playable desktop application that we presented to our class at the end of the term.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ── 02 Problem ── -->
+    <!-- ── 02 Gameplay & Mechanics ── -->
     <section class="case-section case-section--alt" data-reveal>
       <div class="container case-section__inner">
         <div class="case-section__label">
-          <span class="label">02 — Problem</span>
+          <span class="label">02 — Gameplay & Mechanics</span>
         </div>
         <div class="case-body">
           <p>
-            Users reported feeling <strong>overwhelmed on the home screen</strong> — too many metrics,
-            too many notifications, no clear sense of what to focus on. The app felt like a data
-            dashboard rather than a personal coach.
+            The primary mechanic is a <strong>placement-based puzzle system</strong>. Each token must be returned to its correct location in the room.
           </p>
 
-          <div class="pullquote">
+          <!-- GIF: placement puzzle mechanic -->
+          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
+            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
+              <img src="../assets/ForgottenPages/GameDesign.gif" alt="Placement puzzle mechanic" style="width: 100%; height: auto; display: block;">
+            </div>
+            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">Example. The painting needs to be returned to the frame on wall and the pillow needs to be placed on bed.</figcaption>
+          </figure>
+
+          <!-- <div class="pullquote">
             <p class="pullquote__text">
               "I open the app and immediately feel behind. There's so much data but I don't know
               what it means for me today."
             </p>
             <p class="pullquote__attr">— Research participant, age 24</p>
-          </div>
+          </div> -->
 
           <p>
-            Secondary analysis revealed the average user was presented with <strong>14 distinct
-            data points</strong> on the home screen — far beyond the cognitive bandwidth for a
-            quick morning check-in. The result was paralysis, not motivation.
+            Each successful placement reveals part of the final code, which is used to unlock the diary.
           </p>
+
+          <!-- GIF: cursor interaction system -->
+          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
+            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
+              <img src="../assets/ForgottenPages/GameDesign.gif" alt="Cursor-based interaction system" style="width: 100%; height: auto; display: block;">
+            </div>
+            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">Example. "The second digit: If you roll a standard six-sided die and a standard four-sided die, then add the result, what is the smallest possible sum you could roll?"</figcaption>
+          </figure>
+
+          <p>
+            Progression is driven by a password reconstruction system. The game is completed once the full password is correctly entered.
+          </p>
+
+          <!-- GIF: password reconstruction / progression -->
+          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
+            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
+              <img src="../assets/ForgottenPages/Password-Game.png" alt="Password reconstruction and progression" style="width: 100%; height: auto; display: block;">
+            </div>
+            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">The password space appears after all tokens are placed correctly.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 Demo Video ── -->
+    <section class="case-section" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">03 — Demo</span>
+        </div>
+        <div class="case-body">
+          <p>A full walkthrough of the prototype — from exploring the bedroom to unlocking the diary.</p>
+
+          <!-- Replace YOUR_VIDEO_ID with the YouTube video ID (e.g. dQw4w9WgXcQ) -->
+          <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-block: 2rem;">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="Forgotten Pages — Gameplay Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="position: absolute; inset: 0; width: 100%; height: 100%; border: none;">
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ── 03 Process ── -->
-    <section class="case-section" data-reveal>
+    <!-- <section class="case-section" data-reveal>
       <div class="container case-section__inner">
         <div class="case-section__label">
           <span class="label">03 — Process</span>
@@ -172,10 +213,10 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ── 04 Solution ── -->
-    <section class="case-section case-section--alt" data-reveal>
+    <!-- <section class="case-section case-section--alt" data-reveal>
       <div class="container case-section__inner">
         <div class="case-section__label">
           <span class="label">04 — Solution</span>
@@ -205,10 +246,10 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ── 05 Impact ── -->
-    <section class="case-section" data-reveal>
+    <!-- <section class="case-section" data-reveal>
       <div class="container case-section__inner">
         <div class="case-section__label">
           <span class="label">05 — Impact</span>
@@ -240,6 +281,48 @@
             rather than adding features — was the highest-impact intervention. Good UX
             often means deciding what to leave out.
           </p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ── Links ── -->
+    <section class="case-section" data-reveal>
+      <div class="container case-section__inner">
+        <div class="case-section__label">
+          <span class="label">Links</span>
+        </div>
+        <div class="case-body">
+          <!-- Replace # with your GitHub repo URL -->
+          <a href="https://github.com/zazzng/ForgottenPages" target="_blank" rel="noopener noreferrer" style="
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--ink-1);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: border-color 0.2s, background 0.2s;
+          "
+          onmouseover="this.style.borderColor='var(--ink-1)'; this.style.background='var(--surface-2)';"
+          onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent';">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
+                0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755
+                -1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305
+                3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93
+                0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176
+                0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405
+                1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23
+                .645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22
+                0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
+                0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57
+                C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View Source on GitHub
+          </a>
         </div>
       </div>
     </section>
