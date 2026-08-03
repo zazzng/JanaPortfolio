@@ -5,7 +5,6 @@
    ============================================================ */
 
 :root {
-  --sf-outer:    #0D1A17;
   --sf-card:     #1a1f38;
   --sf-text-main:  #ffffff;
   --sf-text-label:    #ffffff;
@@ -13,14 +12,27 @@
   --sf-text-yellow: #FFFDDC;
 }
 body {
-  background: var(--sf-outer);
+  background: var(--outer);
   min-height:100vh;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image: url(../assets/World/texture.png);
+  background-repeat: repeat;
+  opacity: 0.15;
+}
+
 /* ============================================================
    OUTER NAVIGATION (sits above / outside the card)
    ============================================================ */
 
-.sf-outer-nav {
+.outer-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -631,5 +643,5 @@ body {
   .sf-hero-card    { border-radius: 16px 16px 0 0; }
   .sf-peek-card    { border-radius: 16px 16px 0 0; }
   .sf-content-card { border-radius: 0 0 16px 16px; }
-  .sf-outer-nav       { padding: 0.625rem 1rem; }
+  .outer-nav       { padding: 0.625rem 1rem; }
 }

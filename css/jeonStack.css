@@ -5,28 +5,39 @@
    ============================================================ */
 
 :root {
-  --js-outer:  #030c07;
   --js-card:   #0d2b22;
   --js-ink:    #f0ece6;
   --js-mid: white;
-  /* --js-mid:    rgba(240, 236, 230, 0.70); */
   --js-muted:  rgba(240, 236, 230, 0.42);
+  --font-size-base: 1rem;
 }
 
 /* ── Page base ── */
 body {
-  background: var(--js-outer);
+  background: var(--outer);
   color: var(--js-ink);
   min-height: 100vh;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image: url(../assets/World/texture.png);
+  background-repeat: repeat;
+  opacity: 0.15;
+}
+
 /* ============================================================
    OUTER NAV — sits on the dark outer background
    ============================================================ */
 
-.js-outer-nav {
+.outer-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -365,7 +376,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  background: var(--js-outer);
+  background: var(--outer);
   margin-top: 1rem;
   width: 90%;
   height:90%;

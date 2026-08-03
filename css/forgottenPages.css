@@ -5,7 +5,6 @@
    ============================================================ */
 
 :root {
-  --fp-outer:    #0D1A17;
   --fp-card:     #ECDDDD;
   --fp-ink:      #1E100A;
   --fp-ink-mid:  #6B4A3C;
@@ -17,15 +16,27 @@
 
 /* ---- Page base ---- */
 body {
-  background: var(--fp-outer);
+  background: var(--outer);
   min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image: url(../assets/World/texture.png);
+  background-repeat: repeat;
+  opacity: 0.15;
 }
 
 /* ============================================================
    OUTER NAVIGATION (sits above / outside the card)
    ============================================================ */
 
-.fp-outer-nav {
+.outer-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -367,7 +378,6 @@ body {
   border-radius: 25px;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  /* aspect-ratio: 12.5 / 9; */
   width: 888px;
   height: 640px;
 }
@@ -549,5 +559,5 @@ body {
   .fp-hero-card    { border-radius: 16px 16px 0 0; }
   .fp-peek-card    { border-radius: 16px 16px 0 0; }
   .fp-content-card { border-radius: 0 0 16px 16px; }
-  .fp-outer-nav       { padding: 0.625rem 1rem; }
+  .outer-nav       { padding: 0.625rem 1rem; }
 }

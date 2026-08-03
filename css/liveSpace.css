@@ -6,8 +6,6 @@
 
 :root {
   --ls-card:        #08605F;
-  --ls-outer:       #041c1b;
-
   --ls-text:        rgba(255, 255, 255);
   --ls-text-mid:    rgba(255, 255, 255);
   --ls-label:       rgba(255, 255, 255);
@@ -16,16 +14,28 @@
 
 /* ---- Page base ---- */
 body {
-  background: var(--ls-outer);
+  background: var(--outer);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image: url(../assets/World/texture.png);
+  background-repeat: repeat;
+  opacity: 0.15;
 }
 
 /* ============================================================
    OUTER NAVIGATION
    ============================================================ */
 
-.ls-outer-nav {
+.outer-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -589,7 +599,7 @@ body {
   .ls-hero-card    { border-radius: 16px 16px 0 0; }
   .ls-peek-card    { border-radius: 16px 16px 0 0; }
   .ls-content-card { border-radius: 0 0 16px 16px; }
-  .ls-outer-nav    { padding: 0.625rem 1rem; }
+  .outer-nav    { padding: 0.625rem 1rem; }
   .ls-desc-inner p { font-size: 1.25rem; }
   .ls-ack-list     { grid-template-columns: 6rem 1fr; }
 
