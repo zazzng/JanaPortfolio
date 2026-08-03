@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seoul Festival Analytics — Jana</title>
+  <meta name="description" content="Seoul Festival Analytics: A data-driven, interactive web experience that visualizes Seoul's cultural vibrancy through seasonal events, borough comparisons, and dynamic storytelling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/SeoulFestival.css">
+</head>
+<body>
+
+  <!-- Navigation outside the card -->
+   <nav class = "sf-outer-nav" aria-label="Project navigation">
+    <a href="../index.html" class="sf-close" aria-label="Back to work">×</a>
+  </nav>
+
+  <main class="sf-main">
+    <!-- Navigation stack: peek card peeks above hero -->
+     <div class = "sf-stack">
+      <a href="../Project/ForgottenPages.html" class="sf-peek-card sf-peek-card--forgotten" aria-label="Next project: Forgotten Pages">
+        <span class="sf-peek-card__label">✦ Forgotten Pages</span>
+      </a>
+
+      <a href="../Project/LiveSpace.html" class="sf-peek-card sf-peek-card--livespace" aria-label="Next project: Live Space">
+        <span class="sf-peek-card__label">✦ Live Space</span>
+      </a>
+
+      <a href="../Project/JeonStack.html" class="sf-peek-card sf-peek-card--jeon" aria-label="Next project: Jeon Stack">
+        <span class="sf-peek-card__label">✦ Jeon Stack</span>
+      </a>
+
+  
+    <!-- Hero card -->
+    <div class = "sf-hero-card">
+      <!-- Left: brand mark + illustration -->
+      <div class = "sf-card-left">
+        <div class = "sf-card-brand" data-animate="fade-only" data-delay="80">
+          <span class = "sf-brand-mark">✦</span>
+          Seoul Festival Analytics
+        </div>
+      </div>
+      <!-- Right: title + meta -->
+      <div class = "sf-card-right">
+        <h1 class = "sf-card-title" data-animate data-delay="160">Visualizing Seoul's cultural vibrancy through seasonal events, borough comparisons, and dynamic storytelling</h1>
+        <p class = "sf-card-timeline" data-animate data-delay="300">4 weeks project (2025)</p>
+        <p class = "sf-card-tags" data-animate data-delay="420">
+          Data Visualization<br>
+          Web Design * Interactive Design
+        </p>
+        <a href="https://zazzng.github.io/SeoulFestivalAnalysis/" class = "sf-prototype-link" data-animate data-delay="440" target="_blank" rel="noopener">LANDING PAGE ↗</a>
+      </div>
+    </div><!-- /.sf-hero-card -->
+     </div>
+
+     <div class = "sf-content-card">
+      <!-- Description -->
+       <section class = "sf-card-section">
+        <div class = "sf-desc-inner">
+          <span class = "sf-section-label" data-animate="fade-only">Description</span>
+          <p data-animate data-delay="80">
+            <strong>Seoul Festival Analytics</strong> is a data-driven, interactive web experience that visualizes Seoul's cultural vibrancy through seasonal events, borough comparisons, and dynamic storytelling. 
+          </p>
+          <p data-animate data-delay="160">
+            Inspired by <a href="https://pudding.cool" target="_blank" rel="noopener noreferrer">The Pudding</a>, a digital publication known for turning complex data into visually compelling, scroll-driven narratives. This project applies the same philosophy to urban cultural data. 
+          </p>
+        </div>
+      </section>
+
+      <!-- Acknowledgments -->
+      <section class = "sf-card-section">
+        <div class = "sf-desc-inner">
+          <span class = "sf-section-label" data-animate="fade-only">Acknowledgments</span>
+          <dl class = "sf-acknowledgments" data-animate data-delay="80">
+            <dt>Supervisor</dt><dd>Professor Tak Yeon Lee</dd>
+          </dl>
+          <p class="sf-credits-note" data-animate data-delay="140">Prof. Lee was the first one introduce me to the concept of data visualization which led me to pursue this as a career path.</p>
+        </div>
+      </section>
+
+      <!-- Introduce Dataset -->
+       <section class = "sf-card-section sf-card-section--alt">
+        <div class = "sf-desc-inner">
+          <span class = "sf-section-label" data-animate="fade-only">Dataset Overview</span>
+          <p data-animate data-delay="80">
+            This project is based on the data set of Seoul's events which is taken from the <a href="https://data.seoul.go.kr/dataList/OA-15555/S/1/datasetView.do" target="_blank" rel="noopener noreferrer">Seoul Open Data Plaza</a>. The dataset is provided by the Seoul Metropolitan Government and is publicly available for research and analysis.
+          </p>
+          <p data-animate data-delay="160">
+           It includes information on each event's name, location, time, theme classification, cost structure, institution, and additional metadata.
+          </p>
+          <p data-animate data-delay="320">
+            The dataset was translated using Python running under terminal. Invalid or empty values for coordinates and dates were safely ignored.
+          </p>
+          <ul class="sf-data-list" data-animate data-delay="240">
+            <li>Original rows: 4,501</li>
+            <li>Cleaned rows: 3,655</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Summarize Dataset -->
+        <section class="sf-card-section sf-card-section--summary">
+          <div class="sf-desc-inner">
+            <span class="sf-section-label" data-animate="fade-only">Dataset Summary</span>
+
+            <!-- Geographic Distribution -->
+            <div class="sf-subsection sf-subsection--first">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Geographic Distribution - Where events happen</h2>
+              <p data-animate data-delay="80">
+                Events cluster densely in central and northeastern Seoul, tracking the city's cultural and institutional centers. Latitude (37.45–37.70) and longitude (126.80–127.15) confirm full-city coverage.
+              </p>
+              <ul class="sf-data-list" data-animate data-delay="160">
+                <li>Top 5 boroughs: Jongno-gu (900), Jung-gu (352), Eunpyeong-gu (253), Mapo-gu (212), Songpa-gu (168)</li>
+                <li>Bottom 5: Dobong-gu (17), Seodaemun-gu (31), Dongjak-gu (33), Gangdong-gu (50), Geumcheon-gu (50)</li>
+                <li>Jongno-gu dominates, likely from its concentration of museums, galleries, performance halls, and historic institutions. With Jung-gu and Mapo-gu it forms a central cultural hub.</li>
+                <li>Southern boroughs (Seocho, Gangnam, Songpa) show only moderate activity despite economic prominence, suggesting fewer public events relative to commercial activity.</li>
+              </ul>
+              <img src="../assets/SeoulFestival/Event Density Scatter Plot.png" alt="Scatter plot of event density across Seoul" class="sf-data-img" data-animate="illustration" data-delay="240">
+            </div>
+
+            <!-- Theme Classification -->
+            <div class="sf-subsection">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Theme Classification - What types of events</h2>
+              <p data-animate data-delay="80">
+                Over 3,600 events across 15 themes.
+              </p>
+              <ul class="sf-data-list" data-animate data-delay="160">
+                <li>Education/Experience dominates at 1,632 events (nearly 45% of all events)</li>
+                <li>Next largest: Classic (454), Exhibition/art (409), Concert (224)</li>
+                <li>Smallest: Festival-citizen harmony (10), Festival-tradition/history (30), Festival-nature/landscape (32)</li>
+                <li>Takeaway: Seoul's programming emphasizes participation, learning, and citizen involvement over pure performance entertainment.</li>
+              </ul>
+              <img src="../assets/SeoulFestival/EventTheme Frequency.png" alt="Bar chart of event theme classification" class="sf-data-img" data-animate="illustration" data-delay="240">
+            </div>
+
+            <!-- Temporal Patterns -->
+            <div class="sf-subsection">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Temporal Patterns - When events happen</h2>
+              <p data-animate data-delay="80">
+                Activity surged at the end of 2024, peaked in December 2024 (494 events), then declined into moderate 2025 fluctuations.
+              </p>
+              <ul class="sf-data-list" data-animate data-delay="160">
+                <li>Highest: December 2024 (494). Lowest: October 2024 (1) and December 2025 (14)</li>
+                <li>2025 stabilized in the 200–320 range for most months</li>
+                <li>Seasonal pattern: year-end and spring/autumn peak; early winter and early year go quiet. Suggests correlation with festival seasons and city budget cycles.</li>
+                <li>Caveat: extreme lows in early 2024 and late 2025 likely reflect partial data coverage, not true inactivity.</li>
+              </ul>
+              <img src="../assets/SeoulFestival/EventOverTime.png" alt="Line chart of event frequency by month" class="sf-data-img" data-animate="illustration" data-delay="240">
+            </div>
+
+            <!-- Cost and Eligibility -->
+            <div class="sf-subsection">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Cost &amp; Eligibility - Who events are for</h2>
+              <p data-animate data-delay="80">
+                <strong>Cost structure:</strong> Most boroughs run more free than paid events, signaling accessible public programming. Exceptions like Seocho-gu and Gangdong-gu skew paid, likely reflecting commercialized or private venues. (Jongno-gu: 510 free vs 390 paid; Gangdong-gu: 9 free vs 41 paid.)
+              </p>
+              <img src="../assets/SeoulFestival/CostEvent.png" alt="Bar chart of event cost by borough" class="sf-data-img" data-animate="illustration" data-delay="160">
+              <p data-animate data-delay="240">
+                <strong>Eligibility:</strong> General Public dominates at 2,521 events (open access, no demographic restriction), followed by Children/Youth (712, developmental programming) and Adults (297). Small tailored categories include Special Group (42) and Women (1).
+              </p>
+              <img src="../assets/SeoulFestival/EligibilityEvent.png" alt="Bar chart of event eligibility" class="sf-data-img" data-animate="illustration" data-delay="320">
+            </div>
+
+          </div>
+        </section>
+      
+      <!-- Design Direction -->
+        <section class="sf-card-section sf-card-section--summary">
+          <div class="sf-desc-inner">
+            <span class="sf-section-label" data-animate="fade-only">Design Direction</span>
+            <p data-animate data-delay="80">
+              Based on the dataset summary, I designed a web experience that visualizes Seoul's cultural vibrancy through seasonal events and borough comparisons. The design concept is inspired by <a href="https://pudding.cool" target="_blank" rel="noopener noreferrer">The Pudding</a>.
+            </p>
+
+            <div class="sf-subsection sf-subsection--first">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Target Users</h2>
+              <dl class="sf-target-users" data-animate data-delay="80">
+                <dt>Primary</dt><dd>International and domestic travelers interested in discovering the best time and place to experience Seoul's unique offerings.</dd>
+                <dt>Secondary</dt><dd>Designers, students, and city planners interested in urban event distribution and cultural analytics.</dd>
+              </dl>
+            </div>
+
+            <div class="sf-subsection">
+              <h2 class="sf-subsection__title" data-animate="fade-only">Context of Use</h2>
+              <p data-animate data-delay="80">
+                The web is designed for use in travel planning, cultural research, and event discovery. Users can:
+              </p>
+              <ul class="sf-data-list" data-animate data-delay="160">
+                <li>Explore seasonal highlights and borough-specific event patterns</li>
+                <li>Compare neighborhoods to find the best fit for their interests</li>
+                <li>Gain insights into the cultural landscape of Seoul</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      <!-- Future Enhancements -->
+       <section class = "sf-card-section">
+        <div class = "sf-desc-inner">
+          <span class = "sf-section-label" data-animate="fade-only">Future Enhancements</span>
+          <p data-animate data-delay="80">
+            Future enhancements include live data feeds, advanced filtering and personalization, improved accessibility, and expanded analytics.
+          </p>
+        </div>
+      </section>
+    </div><!-- /.sf-content-card -->
+
+    <!-- Next Project -->
+    <section class="sf-next">
+      <span class="sf-next-label" data-animate="fade-only">Next Project</span>
+      <a href="../Project/JeonStack.html" class="sf-next-link" data-animate data-delay="120">Jeon Stack →</a>
+    </section>
+      
+    
+
+  </main>
+  
+  <script src="../js/SeoulFestival.js" defer></script>
+</body>
+</html>

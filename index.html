@@ -3,200 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jana — UX/UI Designer</title>
-  <meta name="description" content="Jana is a UX/UI designer based in Toronto, creating clear and considered digital experiences.">
+  <title>Jana — Product Designer & Data Analyst</title>
+  <meta name="description" content="Jana is a Product Designer and Data Analyst, shaping decisions from first insight to final interface.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Shared -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/components.css">
-  <!-- Page -->
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
+  <div class="home-layout">
 
-  <div id="scroll-progress"></div>
+    <!-- ── Left Column ── -->
+    <div class="home-left">
+      <!--
+        hero-visual fills the full left column (position: absolute; inset: 0).
+        hero-visual__inner is the actual gray card.
+        The two .notch divs are white DOM elements sized to their text content —
+        they sit on top of the card corners and create the concave notch illusion.
+      -->
+      <div class="hero-visual">
+        <div class="hero-visual__inner">
+          <div class="hero-visual__placeholder"></div>
+        </div>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="container nav__inner">
-      <a href="index.html" class="nav__logo">Jana</a>
-      <ul class="nav__links" role="list">
-        <li><a href="index.html"   class="nav__link nav__link--active">Home</a></li>
-        <li><a href="projects.html" class="nav__link">Work</a></li>
-        <li><a href="about.html"   class="nav__link">About</a></li>
-        <li><a href="contact.html" class="nav__link">Contact</a></li>
-      </ul>
-      <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+        <!-- Top-left notch: Jana label -->
+        <div class="notch notch--top">
+          <span class="home-name">Jana</span>
+        </div>
+
+        <!-- Bottom-left notch: title -->
+        <div class="notch notch--bottom">
+          <h1 class="home-title">Product Designer<br>&amp; Data Analyst</h1>
+        </div>
+      </div>
     </div>
-  </nav>
 
-  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
-    <ul class="nav__mobile-links" role="list">
-      <li><a href="index.html"    class="nav__mobile-link nav__mobile-link--active">Home</a></li>
-      <li><a href="projects.html" class="nav__mobile-link">Work</a></li>
-      <li><a href="about.html"    class="nav__mobile-link">About</a></li>
-      <li><a href="contact.html"  class="nav__mobile-link">Contact</a></li>
-    </ul>
+    <!-- ── Right Column ── -->
+    <div class="home-right">
+
+      <!-- Bio -->
+      <div class="home-bio">
+        <p class="home-bio__text">Currently working on product design, using research and data to shape decisions from first insight to final interface.</p>
+        <div class="home-bio__links">
+          <a href="https://www.linkedin.com/in/jana-n-2a2355323/" class="pill-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          <a href="mailto:thn@sfu.ca" class="pill-link" target="_blank" rel="noopener noreferrer">Email</a>
+        </div>
+      </div>
+
+      <!-- Scrollable Card Stack -->
+      <div class="card-stack" id="cardStack" tabindex="0" aria-label="Projects — scroll to browse">
+        <div class="card-stack__scene">
+
+          <!-- Card 0: LiveSpace (front on load) -->
+          <a href="Project/LiveSpace.html" class="stack-card live-space" data-pos="front">
+            <div class="stack-card__body live-space">
+              <p class="stack-card__title">LiveSpace</p>
+              <p class="stack-card__meta">Web Design · UX Design · UI Research</p>
+            </div>
+            <div class="stack-card__img">
+              <img src="../assets/LiveSpace/Landing.png" alt="LiveSpace project preview" class="stack-card__img-content">
+            </div>          
+            
+          </a>
+
+          <!-- Card 1: Forgotten Pages -->
+          <a href="Project/ForgottenPages.html" class="stack-card forgotten-pages" data-pos="mid">
+            <div class="stack-card__body forgotten-pages">
+              <p class="stack-card__title">Forgotten Pages</p>
+              <p class="stack-card__meta">Game Design</p>
+            </div>
+            <div class="stack-card__img">
+              <img src="../assets/ForgottenPages/Cat.png" alt="Forgotten Pages project preview" class="stack-card__img-content">
+            </div>           
+          </a>
+
+          <!-- Card 2: Seoul Festival Analytics -->
+          <a href="Project/SeoulFestivalAnalytics.html" class="stack-card seoul-festival" data-pos="back">
+            <div class="stack-card__body seoul-festival">
+              <p class="stack-card__title">Seoul Festival Analytics</p>
+              <p class="stack-card__meta">UI Design · Data Visualization</p>
+            </div>
+            <div class="stack-card__img"></div>
+          </a>
+
+          <!-- Card 3: Jeon Stack (hidden — scroll to reveal) -->
+          <a href="Project/JeonStack.html" class="stack-card jeon-stack" data-pos="incoming">
+            <div class="stack-card__body jeon-stack">
+              <p class="stack-card__title">Jeon Stack</p>
+              <p class="stack-card__meta">HCI · Computer Vision</p>
+            </div>
+            <div class="stack-card__img">
+              <img src="../assets/JeonStack/F1.png" alt="Jeon Stack project preview" class="stack-card__img-content">
+            </div>         
+          </a>
+
+        </div>
+
+        <!-- Scroll indicator dots -->
+        <div class="stack-dots" id="stackDots" aria-hidden="true">
+          <span class="stack-dot" data-dot="0"></span>
+          <span class="stack-dot" data-dot="1"></span>
+          <span class="stack-dot" data-dot="2"></span>
+          <span class="stack-dot" data-dot="3"></span>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
-  <main>
-
-    <!-- ── Hero ── -->
-    <section class="hero">
-      <div class="container">
-        <p class="label hero__kicker" data-reveal>UX/UI Designer &nbsp;·&nbsp; Toronto, ON</p>
-
-        <h1 class="display hero__headline" data-reveal="d1">
-          Designing<br>experiences that<br>feel <em>inevitable.</em>
-        </h1>
-
-        <p class="hero__sub" data-reveal="d2">
-          I create clear, considered digital products — from early research
-          to refined interface. Currently seeking internship and junior design roles.
-        </p>
-
-        <div class="hero__actions" data-reveal="d3">
-          <a href="projects.html" class="btn btn--primary">View Work</a>
-          <a href="about.html"    class="btn btn--secondary">About Me</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Selected Work ── -->
-    <section class="section">
-      <div class="container">
-
-        <div class="selected-work__header">
-          <span class="label">Selected Work</span>
-          <a href="projects.html" class="link-arrow">All projects &nbsp;→</a>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- Featured — Health App Redesign -->
-          <a href="Project/ForgottenPages.html" class="project-card project-card--featured" data-reveal>
-            <div class="project-card__thumb">
-              <div class="project-card__bg" style="background: linear-gradient(140deg, #D9E5DC 0%, #C8D9CC 100%);"></div>
-              <div class="project-card__overlay">
-                <span class="project-card__overlay-pill">View Case Study &nbsp;→</span>
-              </div>
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__tags">
-                <span class="tag">UX Research</span>
-                <span class="tag">Mobile App</span>
-                <span class="tag">2025</span>
-              </div>
-              <p class="project-card__title">Health &amp; Wellness App Redesign</p>
-              <p class="project-card__desc">A full redesign reducing cognitive load and improving daily habit retention across a 50K-user platform.</p>
-            </div>
-          </a>
-
-          <!-- Study Planner -->
-          <a href="projects.html" class="project-card" data-reveal="d1">
-            <div class="project-card__thumb">
-              <div class="project-card__bg" style="background: linear-gradient(140deg, #D5DCE8 0%, #C8D2E2 100%);"></div>
-              <div class="project-card__overlay">
-                <span class="project-card__overlay-pill">View Project &nbsp;→</span>
-              </div>
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__tags">
-                <span class="tag">UI Design</span>
-                <span class="tag">Dashboard</span>
-              </div>
-              <p class="project-card__title">Study Planner Dashboard</p>
-              <p class="project-card__desc">A student productivity dashboard balancing dense information with calm, clear visual hierarchy.</p>
-            </div>
-          </a>
-
-          <!-- Café Brand -->
-          <a href="projects.html" class="project-card" data-reveal="d2">
-            <div class="project-card__thumb">
-              <div class="project-card__bg" style="background: linear-gradient(140deg, #E8DDD3 0%, #DDD0C4 100%);"></div>
-              <div class="project-card__overlay">
-                <span class="project-card__overlay-pill">View Project &nbsp;→</span>
-              </div>
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__tags">
-                <span class="tag">Web Design</span>
-                <span class="tag">Branding</span>
-              </div>
-              <p class="project-card__title">Local Café Brand &amp; Website</p>
-              <p class="project-card__desc">End-to-end brand identity and responsive website for a neighbourhood café, from logo to launch.</p>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── About Strip ── -->
-    <section class="section about-strip">
-      <div class="container about-strip__inner">
-
-        <p class="about-strip__quote" data-reveal>
-          Grounded in research, refined through iteration — I care deeply about
-          the details that make good design <em>feel</em> right.
-        </p>
-
-        <div data-reveal="d2">
-          <div class="about-strip__stats">
-            <div class="about-strip__stat">
-              <span class="about-strip__num">3+</span>
-              <span class="about-strip__stat-label">Years studying design</span>
-            </div>
-            <div class="about-strip__stat">
-              <span class="about-strip__num">12</span>
-              <span class="about-strip__stat-label">Projects completed</span>
-            </div>
-            <div class="about-strip__stat">
-              <span class="about-strip__num">∞</span>
-              <span class="about-strip__stat-label">Iterations made</span>
-            </div>
-          </div>
-          <a href="about.html" class="link-arrow">Read more about me &nbsp;→</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── Contact Teaser ── -->
-    <section class="section contact-teaser">
-      <div class="container contact-teaser__inner">
-        <span class="label contact-teaser__kicker" data-reveal>Let's Connect</span>
-        <h2 class="h1 contact-teaser__heading" data-reveal="d1">
-          Open to internships<br>and collaborations.
-        </h2>
-        <p class="contact-teaser__sub" style="color: var(--ink-2);" data-reveal="d2">
-          I'd love to hear about your project or opportunity.
-        </p>
-        <a href="contact.html" class="btn btn--primary" data-reveal="d3">Get in Touch</a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ── Footer ── -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="footer__copy">© 2026 Jana. All rights reserved.</span>
-      <nav class="footer__links" aria-label="Social links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Dribbble</a>
-        <a href="#" class="footer__link">GitHub</a>
-        <a href="mailto:jana@example.com" class="footer__link">Email</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/homeStack.js"></script>
 </body>
 </html>

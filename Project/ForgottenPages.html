@@ -3,354 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puzzle Exploration Game — Jana</title>
-  <meta name="description" content="Case study: Health & Wellness App Redesign — reducing cognitive load and improving habit retention.">
+  <title>Forgotten Pages — Jana</title>
+  <meta name="description" content="Forgotten Pages — a puzzle exploration game about recovering a forgotten diary password through spatial exploration and object placement.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Shared -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/nav.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <!-- Page -->
-  <link rel="stylesheet" href="../css/case-study.css">
+  <link rel="stylesheet" href="../css/forgottenPages.css">
 </head>
 <body>
 
-  <div id="scroll-progress"></div>
-
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="container nav__inner">
-      <a href="../index.html" class="nav__logo">Jana</a>
-      <ul class="nav__links" role="list">
-        <li><a href="../index.html"    class="nav__link">Home</a></li>
-        <li><a href="../projects.html" class="nav__link nav__link--active">Work</a></li>
-        <li><a href="../about.html"    class="nav__link">About</a></li>
-        <li><a href="../contact.html"  class="nav__link">Contact</a></li>
-      </ul>
-      <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <!-- Navigation outside the card -->
+  <nav class="fp-outer-nav" aria-label="Project navigation">
+    <a href="../index.html" class="fp-close" aria-label="Back to work">×</a>
   </nav>
 
-  <div class="nav__mobile" id="mobile-menu">
-    <ul class="nav__mobile-links" role="list">
-      <li><a href="../index.html"    class="nav__mobile-link">Home</a></li>
-      <li><a href="../projects.html" class="nav__mobile-link nav__mobile-link--active">Work</a></li>
-      <li><a href="../about.html"    class="nav__mobile-link">About</a></li>
-      <li><a href="../contact.html"  class="nav__mobile-link">Contact</a></li>
-    </ul>
-  </div>
+  <main class="fp-main">
 
-  <main>
+    <!-- ── Navigation stack: peek card peeks above hero ── -->
+    <div class="fp-stack">
 
-    <!-- ── Case Study Hero ── -->
-    <section class="case-hero">
-      <div class="container">
-        <span class="label case-hero__kicker" data-reveal>
-          <a href="../projects.html" style="text-decoration: none; color: inherit;">← Back to Work</a>
-        </span>
+      <a href="../Project/LiveSpace.html" class="fp-peek-card fp-peek-card--livespace" aria-label="Next project: Live Space">
+        <span class="fp-peek-card__label">✦ Live Space</span>
+      </a>
 
-        <h1 class="display" style="max-width: 16ch; margin-top: 1.5rem;" data-reveal="d1">
-          Puzzle Exploration<br>Game Redesign
-        </h1>
+      <a href="../Project/JeonStack.html" class="fp-peek-card fp-peek-card--jeon" aria-label="Next project: Jeon Stack">
+        <span class="fp-peek-card__label">✦ Jeon Stack</span>
+      </a>
 
-        <div class="case-hero__meta" data-reveal="d2">
-          <div class="case-meta-item">
-            <span class="case-meta-label">Keywords</span>
-            <span class="case-meta-value">Game, OOP, Visual Design, Story-driven</span>
-          </div>
-          <div class="case-meta-item">
-            <span class="case-meta-label">Timeline</span>
-            <span class="case-meta-value">4 weeks, 2025</span>
-          </div>
-          <div class="case-meta-item">
-            <span class="case-meta-label">Tools</span>
-            <span class="case-meta-value">VS Code, Procreate, Eclipse, Audacity</span>
-          </div>
+      <a href="../Project/SeoulFestivalAnalytics.html" class="fp-peek-card fp-peek-card--seoul" aria-label="Next project: Seoul Festival Analytics">
+        <span class="fp-peek-card__label">✦ Seoul Festival Analytics</span>
+      </a>
+
+    <!-- ── Hero card ── -->
+    <div class="fp-hero-card">
+
+      <!-- Left: brand mark + illustration -->
+      <div class="fp-card-left">
+        <div class="fp-card-brand" data-animate="fade-only" data-delay="80">
+          <span class="fp-brand-mark">✦</span>
+          Forgotten Pages
+        </div>
+        <div class="fp-card-art">
+          <img src="../assets/ForgottenPages/Cat.png" alt="Illustrated cat writing with a pencil">
         </div>
       </div>
-    </section>
 
-    <!-- ── Hero Image ── -->
-    <div style="padding-block: 3rem; border-bottom: 1px solid var(--border);">
-      <div class="container">
-        <div class="case-image" style="aspect-ratio: unset;" data-reveal>
-          <img
-            src="../assets/ForgottenPages/ForgottenPages-cover.png"
-            alt="Forgotten Pages cover"
-            style="width: 100%; height: auto; display: block;">
-        </div>
+      <!-- Right: title + meta -->
+      <div class="fp-card-right">
+        <h1 class="fp-card-title" data-animate data-delay="160">Turns the feeling of piecing together a lost memory into an interaction</h1>
+        <p class="fp-card-timeline" data-animate data-delay="300">4 weeks project (2025)</p>
+        <p class="fp-card-tags" data-animate data-delay="420">
+          Interactive System<br>
+          Game Prototype * Creative Technology
+        </p>
       </div>
+
+    </div><!-- /.fp-hero-card -->
+
+    </div><!-- /.fp-stack -->
+
+    <div class="fp-content-card">
+
+      <!-- Description -->
+      <section class="fp-card-section">
+        <div class="fp-desc-inner">
+          <span class="fp-section-label fp-desc-label" data-animate="fade-only">Description</span>
+          <p data-animate data-delay="130">Set in a quiet bedroom frozen in time, the experience guides a player through recovering a forgotten diary password through <strong>spatial exploration</strong> and <strong>object placement</strong>.</p>
+          <p data-animate data-delay="260">Every item in the room is a memory <strong>token</strong>. Every token returned to its rightful place <strong>unlocks</strong> a fragment of something lost.</p>
+          <div class="fp-desc-images" data-animate="illustration" data-delay="420">
+            <img class="fp-pillow fp-parallax" src="../assets/ForgottenPages/Pillow.png" alt="Decorative pillow token">
+            <img class="fp-cat-rug fp-parallax" src="../assets/ForgottenPages/CatOnRug.png" alt="Cat resting on a golden rug">
+          </div>
+        </div>
+      </section>
+
+      <!-- Prototype video -->
+      <section class="fp-card-section">
+        <span class="fp-section-label" data-animate="fade-only">Prototype Video</span>
+        <div class="fp-video-embed" data-animate data-delay="140">
+          <!-- <video class ="fp-prototype-video" autoplay muted loop playsinline>
+            <source src="../assets/ForgottenPages/ForgottenGame.mp4" type="video/mp4">
+          </video> -->
+          <iframe
+            src="https://www.youtube.com/embed/XWv8FTt_6Vc"
+            title="Forgotten Pages — Gameplay Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <!-- What I Built -->
+      <section class="fp-card-section">
+        <div class="fp-built-grid">
+          <div class="fp-built-item" data-animate data-delay="0">
+            <img src="../assets/ForgottenPages/ForgottenPages-cover.png" alt="Forgotten Pages game title screen">
+            <span class="fp-section-label">What I Built</span>
+            <p>Developed the project <strong>end-to-end in an OOP framework</strong>, from system architecture to the final playable build</p>
+          </div>
+          <div class="fp-built-item" data-animate data-delay="150">
+            <img src="../assets/ForgottenPages/GameDesign.gif" alt="Interactive bedroom environment">
+            <p>Constructed the full bedroom environment as an <strong>interactive space</strong> where every object serves a functional and narrative role</p>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <!-- ── 01 Overview ── -->
-    <section class="case-section" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">01 — Overview</span>
-        </div>
-        <div class="case-body">
-          <p>
-            <strong>Forgotten Pages</strong> is a third-person simulation game set in a quiet bedroom environment filled with faded objects and scattered memories. The game guides players through the process of helping a girl recover the forgotten password to her diary by exploring her surroundings, collecting symbolic memory tokens. Each token must be returned to its rightful place to reveal a fragment of the password. The goal of the game is to be able to unlock the girl’s diary.
-          </p>
-          <p>
-            This was a SFU SIAT 2nd-year OOP project design and development sprint to create a game prototype from scratch. The final prototype was a playable desktop application that we presented to our class at the end of the term.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 02 Gameplay & Mechanics ── -->
-    <section class="case-section case-section--alt" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">02 — Gameplay & Mechanics</span>
-        </div>
-        <div class="case-body">
-          <p>
-            The primary mechanic is a <strong>placement-based puzzle system</strong>. Each token must be returned to its correct location in the room.
-          </p>
-
-          <!-- GIF: placement puzzle mechanic -->
-          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
-            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
-              <img src="../assets/ForgottenPages/GameDesign.gif" alt="Placement puzzle mechanic" style="width: 100%; height: auto; display: block;">
-            </div>
-            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">Example. The painting needs to be returned to the frame on wall and the pillow needs to be placed on bed.</figcaption>
-          </figure>
-
-          <!-- <div class="pullquote">
-            <p class="pullquote__text">
-              "I open the app and immediately feel behind. There's so much data but I don't know
-              what it means for me today."
-            </p>
-            <p class="pullquote__attr">— Research participant, age 24</p>
-          </div> -->
-
-          <p>
-            Each successful placement reveals part of the final code, which is used to unlock the diary.
-          </p>
-
-          <!-- GIF: cursor interaction system -->
-          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
-            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
-              <img src="../assets/ForgottenPages/GameDesign.gif" alt="Cursor-based interaction system" style="width: 100%; height: auto; display: block;">
-            </div>
-            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">Example. "The second digit: If you roll a standard six-sided die and a standard four-sided die, then add the result, what is the smallest possible sum you could roll?"</figcaption>
-          </figure>
-
-          <p>
-            Progression is driven by a password reconstruction system. The game is completed once the full password is correctly entered.
-          </p>
-
-          <!-- GIF: password reconstruction / progression -->
-          <figure style="width: 66.67%; margin-block: 2rem; margin-inline: 0;">
-            <div class="case-image" data-reveal style="aspect-ratio: unset; margin-block: 0;">
-              <img src="../assets/ForgottenPages/Password-Game.png" alt="Password reconstruction and progression" style="width: 100%; height: auto; display: block;">
-            </div>
-            <figcaption style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--ink-3);">The password space appears after all tokens are placed correctly.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 03 Demo Video ── -->
-    <section class="case-section" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">03 — Demo</span>
-        </div>
-        <div class="case-body">
-          <p>A full walkthrough of the prototype — from exploring the bedroom to unlocking the diary.</p>
-
-          <!-- Replace YOUR_VIDEO_ID with the YouTube video ID (e.g. dQw4w9WgXcQ) -->
-          <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-block: 2rem;">
-            <iframe
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="Forgotten Pages — Gameplay Demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position: absolute; inset: 0; width: 100%; height: 100%; border: none;">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 03 Process ── -->
-    <!-- <section class="case-section" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">03 — Process</span>
-        </div>
-        <div class="case-body">
-          <p>
-            I conducted <strong>6 remote user interviews</strong> and analyzed 200+ App Store reviews
-            to map the emotional journey through the app. Using affinity mapping, I surfaced three
-            core pain points: cognitive overload, unclear progress signals, and a lack of daily
-            intentionality.
-          </p>
-          <p>
-            From there, I moved into rapid sketching — exploring how "less" could feel like more.
-            The central design hypothesis: <strong>showing one priority at a time</strong>, rather
-            than everything at once, would reduce anxiety and increase follow-through.
-          </p>
-
-          <div class="case-image" data-reveal="d1">
-            <div style="width: 100%; height: 100%; background: linear-gradient(120deg, #E5DDD5 0%, #D9E5DC 100%); display: flex; align-items: center; justify-content: center;">
-              <span style="font-size: 0.8125rem; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase;">Affinity Map · Research Synthesis</span>
-            </div>
-          </div>
-
-          <p>
-            I prototyped three variants and ran unmoderated usability tests via Maze with
-            <strong>18 participants</strong>. The winning variant used a "Daily Focus" card
-            as the centrepiece — a single, personalised nudge based on the user's goals and
-            current streak.
-          </p>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- ── 04 Solution ── -->
-    <!-- <section class="case-section case-section--alt" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">04 — Solution</span>
-        </div>
-        <div class="case-body">
-          <p>
-            The redesigned home screen leads with a single <strong>"Today's Focus"</strong> card —
-            one habit, one clear action, one motivational signal. Secondary metrics are collapsed
-            below the fold and surfaced on demand.
-          </p>
-          <p>
-            I also redesigned the <strong>habit completion flow</strong> to include a brief moment
-            of positive reinforcement — a subtle animation and a short, kind message — making each
-            completion feel meaningful rather than mechanical.
-          </p>
-
-          <div class="case-image" data-reveal="d1">
-            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #D5DCE8 0%, #C8D2E2 100%); display: flex; align-items: center; justify-content: center;">
-              <span style="font-size: 0.8125rem; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase;">Final Screens · iOS Prototype</span>
-            </div>
-          </div>
-
-          <p>
-            The visual language was deliberately calm — soft backgrounds, generous whitespace,
-            and a type scale that guides the eye without demanding attention. The interface
-            should never compete with the habit itself.
-          </p>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- ── 05 Impact ── -->
-    <!-- <section class="case-section" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">05 — Impact</span>
-        </div>
-        <div class="case-body">
-          <p>
-            Usability testing of the final prototype showed meaningful improvement across
-            all key metrics, with participants completing tasks faster and reporting
-            significantly less cognitive strain.
-          </p>
-
-          <div class="impact-grid" data-reveal="d1">
-            <div>
-              <p class="impact-num">+38%</p>
-              <p class="impact-desc">Task completion rate on the day-7 habit check-in flow</p>
-            </div>
-            <div>
-              <p class="impact-num">−52%</p>
-              <p class="impact-desc">Reported feeling of overwhelm (measured via SUS score)</p>
-            </div>
-            <div>
-              <p class="impact-num">4.7<span style="font-size: 1.75rem;">/5</span></p>
-              <p class="impact-desc">Average satisfaction rating in post-test survey</p>
-            </div>
-          </div>
-
-          <p>
-            The redesign demonstrated that <strong>reducing visible complexity</strong> —
-            rather than adding features — was the highest-impact intervention. Good UX
-            often means deciding what to leave out.
-          </p>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- ── Links ── -->
-    <section class="case-section" data-reveal>
-      <div class="container case-section__inner">
-        <div class="case-section__label">
-          <span class="label">Links</span>
-        </div>
-        <div class="case-body">
-          <!-- Replace # with your GitHub repo URL -->
-          <a href="https://github.com/zazzng/ForgottenPages" target="_blank" rel="noopener noreferrer" style="
-            display: inline-flex;
-            align-items: center;
-            gap: 0.625rem;
-            padding: 0.75rem 1.25rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--ink-1);
-            font-size: 0.9375rem;
-            font-weight: 500;
-            transition: border-color 0.2s, background 0.2s;
-          "
-          onmouseover="this.style.borderColor='var(--ink-1)'; this.style.background='var(--surface-2)';"
-          onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent';">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
-                0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755
-                -1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305
-                3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93
-                0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176
-                0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405
-                1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23
-                .645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22
-                0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
-                0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57
-                C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            View Source on GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Next Project ── -->
-    <section class="next-project" data-reveal>
-      <div class="container">
-        <span class="label" style="display: block; margin-bottom: 1.25rem;">Next Project</span>
-        <a href="../projects.html" class="next-project__link">
-          <h2 class="h2 next-project__title">Campus Event Hub &nbsp;→</h2>
-        </a>
-      </div>
+    <!-- ── Next project ── -->
+    <section class="fp-next">
+      <span class="fp-next-label" data-animate="fade-only">Next Project</span>
+      <a href="../Project/SeoulFestivalAnalytics.html" class="fp-next-link" data-animate data-delay="120">Seoul Festival →</a>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="footer__copy">© 2026 Jana. All rights reserved.</span>
-      <nav class="footer__links" aria-label="Social links">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Dribbble</a>
-        <a href="#" class="footer__link">GitHub</a>
-        <a href="mailto:jana@example.com" class="footer__link">Email</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+  <script src="../js/forgottenPages.js" defer></script>
 </body>
 </html>

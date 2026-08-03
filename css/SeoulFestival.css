@@ -1,0 +1,635 @@
+/* ============================================================
+   LIVESPACE — Bold product case study theme
+   ============================================================
+   Palette: teal hero band · frosted meta cards · clean white
+   ============================================================ */
+
+:root {
+  --sf-outer:    #0D1A17;
+  --sf-card:     #1a1f38;
+  --sf-text-main:  #ffffff;
+  --sf-text-label:    #ffffff;
+  --sf-text:    #ffffff;
+  --sf-text-yellow: #FFFDDC;
+}
+body {
+  background: var(--sf-outer);
+  min-height:100vh;
+}
+/* ============================================================
+   OUTER NAVIGATION (sits above / outside the card)
+   ============================================================ */
+
+.sf-outer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.sf-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  order: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sf-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+/* ============================================================
+   MAIN CARD WRAPPER
+   ============================================================ */
+
+.sf-main {
+  padding: 0 1.25rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Hero and content cards share the same background */
+.sf-hero-card,
+.sf-content-card {
+  background: var(--sf-card);
+}
+
+/* Rounded only on top (hero) and bottom (content) */
+.sf-hero-card    { border-radius: 20px 20px 0 0; overflow: hidden; }
+.sf-content-card { border-radius: 0 0 20px 20px; overflow: hidden; }
+
+/* ============================================================
+   HERO CARD — two-column grid
+   Left:  brand mark (top) + cat art (fills & bleeds bottom)
+   Right: title + meta (top-anchored)
+   ============================================================ */
+
+.sf-hero-card {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px);
+  padding: 2.5rem 15rem 3rem 12rem;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+}
+
+/* Brand mark — pinned top-left, independent of title */
+.sf-card-left {
+  position: absolute;
+  top: 2rem;
+  left: 12rem;
+}
+
+.sf-card-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: var(--sf-text-main);
+  flex-shrink: 0;
+}
+
+.sf-brand-mark {
+  font-size: 0.75rem;
+  color: var(--sf-text-label);
+}
+
+/* Art fills remaining left column, aligns to bottom, bleeds */
+.sf-card-art {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  margin-left: -1.5rem;
+  margin-bottom: -2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.sf-card-art img {
+  width: 110%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+/* Gradient fade: dissolves cat into card background */
+.sf-card-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 80%,
+      var(--sf-card) 93%
+    ),
+    linear-gradient(
+      to right,
+      rgba(236, 221, 221, 0.5) 0%,
+      transparent 40%,
+      transparent 80%,
+      rgba(236, 221, 221, 0.5) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Title + meta — aligned with sf-desc-inner */
+.sf-card-right {
+  padding: 2rem 0 0 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sf-card-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2.2vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.38;
+  color: var(--sf-text-main);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.sf-card-timeline {
+  font-size: var(--font-size-base);
+  color: var(--sf-text);
+  margin: 0;
+}
+
+.sf-card-tags {
+  font-size: var(--font-size-base);
+  color: var(--sf-text);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sf-prototype-link {
+  color: var(--sf-text-yellow);
+  text-decoration: none;
+  font-weight: 900;
+  transition: color 0.2s;
+}
+
+.sf-prototype-link:hover {
+  color: var(--sf-text-yellow);
+}
+
+/* ============================================================
+   PROJECT NAVIGATION STACK
+   Peek card sits behind the hero card; only its top 16px strip
+   is visible. Hero is pushed down 16px to expose the strip.
+   ============================================================ */
+
+.sf-stack {
+  position: relative;
+  height: calc(100vh - 64px);
+}
+
+/* Hero card: pushed down 60px (3 peek strips × 20px each) */
+.sf-stack .sf-hero-card {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: unset;
+  z-index: 4;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+/* Base peek card */
+.sf-peek-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+/* Positions by DOM order */
+.sf-peek-card:nth-child(1) { top: 0;    z-index: 1; }
+.sf-peek-card:nth-child(2) { top: 20px; z-index: 2; }
+.sf-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+
+/* Colors by project */
+.sf-peek-card--forgotten { background: var(--background-fp-card); }
+.sf-peek-card--jeon      { background: var(--background-js-card); }
+.sf-peek-card--livespace { background: var(--background-ls-card); }
+
+/* Hover */
+.sf-peek-card:hover ~ .sf-peek-card,
+.sf-peek-card:hover ~ .sf-hero-card {
+  transform: translateY(7px);
+}
+
+.sf-peek-card__label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.sf-peek-card--forgotten .sf-peek-card__label { color: var(--font-color-fp); }
+.sf-peek-card--jeon      .sf-peek-card__label { color: var(--font-color-js); }
+.sf-peek-card--livespace .sf-peek-card__label { color: var(--font-color-ls); }
+
+.sf-peek-card:hover .sf-peek-card__label {
+  opacity: 1;
+}
+
+/* ============================================================
+   CONTENT CARDS
+   ============================================================ */
+
+.sf-content-card {
+  padding: 0;
+  min-height: calc(100vh - 64px);
+}
+
+/* Each section inside the single content card */
+.sf-card-section {
+  padding: 0rem 15rem 0rem 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: calc(50vh - 64px);
+  justify-content: center;
+}
+
+.sf-card-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  margin: 0;
+}
+
+/* Shared label */
+.sf-section-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--sf-text-yellow);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Text */
+.sf-content-card p {
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  color: var(--sf-text-main);
+  margin: 0;
+}
+
+.sf-content-card strong {
+  color: var(--sf-text-main);
+  font-weight: 600;
+}
+
+/* ---- Description: single-column, compact, left-aligned ---- */
+.sf-desc-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding-left: 10rem;
+}
+
+.sf-desc-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--sf-text-label);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.sf-desc-inner p {
+  color: var(--sf-text-main);
+  line-height: 1.62;
+  max-width: 44ch;
+  margin: 0;
+}
+
+.sf-desc-inner strong {
+  color: var(--sf-text-main);
+  font-weight: 600;
+}
+
+/* ---- Dataset Summary section ---- */
+.sf-card-section--summary {
+  min-height: auto;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  /* padding-bottom: 3rem; */
+}
+
+.sf-card-section--summary .sf-desc-inner {
+  /* padding-left: 0; */
+  gap: 0;
+}
+
+/* Each analysis block */
+.sf-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-top: 3.5rem;
+  width: 100%;
+}
+
+.sf-subsection--first {
+  padding-top: 2rem;
+  border-top: none;
+}
+
+/* Subsection heading */
+.sf-subsection__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--sf-text-main);
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Wider text inside subsections */
+.sf-subsection p {
+  max-width: 60ch;
+}
+
+/* Chart images */
+.sf-data-img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ---- Target users definition list ---- */
+.sf-target-users {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.625rem 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sf-target-users dt {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-yellow);
+  font-weight: 600;
+  white-space: nowrap;
+  align-self: baseline;
+}
+
+.sf-target-users dd {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-main);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 55ch;
+}
+
+/* ---- Acknowledgments definition list ---- */
+.sf-acknowledgments {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.625rem 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sf-acknowledgments dt {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-main);
+  font-weight: 600;
+  white-space: nowrap;
+  align-self: baseline;
+}
+
+.sf-acknowledgments dd {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-main);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sf-credits-note {
+  max-width: 44ch;
+}
+
+.sf-target-users dd {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-main);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 55ch;
+}
+
+/* ---- Dataset bullet list ---- */
+.sf-data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sf-data-list li {
+  font-size: var(--font-size-base);
+  color: var(--sf-text-main);
+  line-height: 1.62;
+  padding-left: 1.25em;
+  position: relative;
+}
+
+.sf-data-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+}
+
+/* ============================================================
+   NEXT PROJECT (dark, outside cards)
+   ============================================================ */
+
+.sf-next {
+  padding: 1.5rem 8rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sf-next-label {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.sf-next-link {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sf-next-link:hover { color: #fff; }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+
+/* Default: float + fade */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(26px);
+  will-change: transform, opacity;
+  transition:
+    opacity  820ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Label anchor: fade only, no drift */
+[data-animate="fade-only"] {
+  opacity: 0;
+  transform: none;
+  will-change: opacity;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Illustrations: heavier, slower settle */
+[data-animate="illustration"] {
+  opacity: 0;
+  transform: translateY(36px);
+  will-change: transform, opacity;
+  transition:
+    opacity  950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Revealed — all variants */
+[data-animate].revealed,
+[data-animate="fade-only"].revealed,
+[data-animate="illustration"].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax targets keep their GPU layer */
+.sf-parallax {
+  will-change: transform;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Collapse to normal flow on mobile */
+  .sf-stack {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sf-peek-card {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    height: 16px;
+    border-radius: 20px 20px 0 0;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .sf-peek-card:hover ~ .sf-peek-card,
+  .sf-peek-card:hover ~ .sf-hero-card {
+    transform: none;
+  }
+
+  .sf-peek-card:nth-child(n+2) { border-radius: 0; }
+
+  .sf-peek-card__label {
+    opacity: 1;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .sf-stack .sf-hero-card {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    min-height: unset;
+    z-index: auto;
+    flex: 1;
+    border-radius: 0; /* peek cards above it handle the top corners */
+  }
+
+  .sf-hero-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .sf-card-left  { padding: 1.5rem 1.5rem 0; }
+  .sf-card-right { padding: 1.25rem 1.5rem 1.5rem; }
+
+  .sf-card-art {
+    margin-left: 0;
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  .sf-card-art img { width: 70%; }
+
+  .sf-desc-inner     { grid-template-columns: 1fr; }
+  .sf-desc-right     { padding-top: 0; }
+  .sf-pillow         { margin: 0; }
+  .sf-built-grid     { grid-template-columns: 1fr; }
+  .sf-card-section   { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .sf-main            { padding: 0 0.625rem 2rem; }
+  .sf-hero-card    { border-radius: 16px 16px 0 0; }
+  .sf-peek-card    { border-radius: 16px 16px 0 0; }
+  .sf-content-card { border-radius: 0 0 16px 16px; }
+  .sf-outer-nav       { padding: 0.625rem 1rem; }
+}

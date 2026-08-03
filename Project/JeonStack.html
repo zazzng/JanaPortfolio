@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeon Stack — Jana</title>
+  <meta name="description" content="Jeon Stack — turning Korean folktales into a hands-on storytelling system through physical book stacking and computer vision.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/jeonStack.css">
+</head>
+<body>
+
+  <!-- Back button — outside the card, on the dark outer background -->
+  <nav class="js-outer-nav" aria-label="Project navigation">
+    <a href="../index.html" class="js-close" aria-label="Back to work">×</a>
+  </nav>
+
+  <main class="js-main">
+
+    <!-- ── Navigation stack: peek card peeks above hero ── -->
+    <div class="js-stack">
+
+      <a href="../Project/SeoulFestivalAnalytics.html" class="js-peek-card js-peek-card--seoul" aria-label="Next project: Seoul Festival Analytics">
+        <span class="js-peek-card__label">✦ Seoul Festival Analytics</span>
+      </a>
+
+      <a href="../Project/ForgottenPages.html" class="js-peek-card js-peek-card--forgotten" aria-label="Next project: Forgotten Pages">
+        <span class="js-peek-card__label">✦ Forgotten Pages</span>
+      </a>
+
+      <a href="../Project/LiveSpace.html" class="js-peek-card js-peek-card--livespace" aria-label="Next project: Live Space">
+        <span class="js-peek-card__label">✦ Live Space</span>
+      </a>
+
+
+    <!-- ── Hero card ── -->
+    <div class="js-hero-card">
+
+      <!-- Title + tagline -->
+      <div class="js-pad">
+        <h1 class="js-title" data-animate>
+          <span class="js-brand-mark">✦</span>
+          Jeon Stack</h1>
+        <div class="js-tagline">
+          <p class="js-tagline__quote" data-animate data-delay="120">Ever think of what Cinderella will talk to Elsa if they ever met?</p>
+          <p class="js-tagline__tags" data-animate="fade-only" data-delay="260">Tangible Interaction * Interactive Systems * Creative Technology</p>
+        </div>
+      </div>
+
+      <!-- Photo strip — parallax, no entry animation -->
+      <div class="js-strip" data-parallax>
+        <img src="../assets/JeonStack/F1.png" alt="Jeon Stack installation environment">
+      </div>
+
+      <!-- Lamp + credits + pull quote -->
+      <div class="js-pad">
+
+        <div class="js-credits-block">
+          <!-- Lamp: parallax only, no entry animation (already has translateX) -->
+          <div class="js-lamp-photo" data-parallax>
+            <img src="../assets/JeonStack/Lamb.png" alt="Desk lamp on a stack of books">
+          </div>
+          <div class="js-credits-content">
+            <dl class="js-credits-list" data-animate>
+              <dt>Supervisor</dt><dd>Professor Woohun Lee</dd>
+              <dt>Co-author</dt><dd>Intae Hwang</dd>
+              <dt>Co-author</dt><dd>Seunghwa Pyo</dd>
+            </dl>
+            <p class="js-credits-note" data-animate data-delay="140">This project would not have been possible without the contributions of my KAIST professor and beloved classmates, whose collaborative effort brought JeonStack to life</p>
+            <p class="js-pullquote" data-animate data-delay="280">Jeon Stack turns Korean folktales into a hands-on storytelling system where the story changes based on how you stack the books.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.js-hero-card -->
+    </div><!-- /.js-stack -->
+
+    <!-- ── Content card ── -->
+    <div class="js-content-card">
+      <div class="js-pad">
+
+        <section class="js-section">
+          <h2 class="js-section__label" data-animate="fade-only">Overview</h2>
+          <p data-animate data-delay="130">Instead of reading stories linearly, users physically stack unmodified folktale books on a bookshelf.</p>
+          <p data-animate data-delay="260">The system responds by generating a real-time audiovisual scene — complete with animated backgrounds, character actions, synthesized dialogue, and dynamic world transitions</p>
+        </section>
+
+        <section class="js-section">
+          <h2 class="js-section__label" data-animate="fade-only">How It Works</h2>
+          <p data-animate data-delay="130">Each book carries a fiducial marker that the system detects via an overhead webcam.</p>
+          <div class="js-markers" data-animate="illustration" data-delay="260">
+            <img src="../assets/JeonStack/marker1.png" alt="ArUco fiducial marker">
+            <img src="../assets/JeonStack/marker2.png" alt="ArUco fiducial marker">
+          </div>
+          <p class="js-caption" data-animate data-delay="380">Webcam detects ArUco markers to identify which books are stacked and in what order, triggering a live audiovisual narrative in real time.</p>
+          <p data-animate data-delay="500">The order books are stacked determines the narrative: the first book sets the world, the second introduces a character, and the third triggers a dialogue exchange between two characters. Swapping books reshapes the story on the fly</p>
+          <div class="js-diagram" data-animate data-delay="160">
+            <img src="../assets/JeonStack/diagram.png" alt="System architecture diagram">
+          </div>
+        </section>
+
+        <section class="js-section js-section--last">
+          <h2 class="js-section__label" data-animate="fade-only">What I worked on</h2>
+          <div class="js-work-list" data-animate data-delay="130">
+            <span class="js-work-item">Built and calibrated the marker detection pipeline using ArUco fiducial markers attached to each book cover</span>
+            <span class="js-work-item">Designed and implemented the UI and visual layer</span>
+            <span class="js-work-item">Handled the physical setup of the installation</span>
+          </div>
+        </section>
+
+        <section class="js-section">
+          <h2 class="js-section__label" data-animate="fade-only">Prototype Video</h2>
+          <div class="js-video" data-animate="illustration" data-delay="160">
+            <iframe
+              src="https://www.youtube.com/embed/JTcyOvT0Rkw"
+              title="Jeon Stack — Prototype Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </section>
+
+      </div>
+    </div><!-- /.js-content-card -->
+
+    <!-- ── Next project ── -->
+    <section class="js-next">
+      <span class="js-next-label" data-animate="fade-only">Next Project</span>
+      <a href="../Project/LiveSpace.html" class="js-next-link" data-animate data-delay="120">Live Space →</a>
+    </section>
+
+  </main>
+
+  <script src="../js/jeonStack.js" defer></script>
+</body>
+</html>

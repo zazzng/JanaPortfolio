@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Space — Jana</title>
+  <meta name="description" content="Live Space — a mobile app giving building residents real-time visibility into shared amenities without leaving their unit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/liveSpace.css">
+</head>
+<body>
+
+  <nav class="ls-outer-nav" aria-label="Project navigation">
+    <a href="../index.html" class="ls-back" aria-label="Back to work">×</a>
+  </nav>
+
+  <main class="ls-main">
+
+    <!-- ── Navigation stack: peek cards peek above hero ── -->
+    <div class="ls-stack">
+
+      <a href="../Project/JeonStack.html" class="ls-peek-card ls-peek-card--jeon" aria-label="Next project: Jeon Stack">
+        <span class="ls-peek-card__label">✦ Jeon Stack</span>
+      </a>
+
+      <a href="../Project/SeoulFestivalAnalytics.html" class="ls-peek-card ls-peek-card--seoul" aria-label="Next project: Seoul Festival Analytics">
+        <span class="ls-peek-card__label">✦ Seoul Festival Analytics</span>
+      </a>
+
+      <a href="../Project/ForgottenPages.html" class="ls-peek-card ls-peek-card--forgotten" aria-label="Next project: Forgotten Pages">
+        <span class="ls-peek-card__label">✦ Forgotten Pages</span>
+      </a>
+
+      <!-- ── Hero card ── -->
+      <div class="ls-hero-card">
+
+        <!-- Left: text -->
+        <div class="ls-card-left">
+          <div class="ls-card-brand" data-animate="fade-only" data-delay="80">
+            <span class="ls-brand-mark">✦</span>
+            Live Space
+          </div>
+          <div class="ls-card-meta">
+            <h1 class="ls-card-title" data-animate data-delay="160">Instantly see what's available in your building before you even open your door</h1>
+            <p class="ls-card-tags" data-animate data-delay="280">UX/UI Design * Frontend Development</p>
+            <p class="ls-card-timeline" data-animate data-delay="340">4 weeks project (2026)</p>
+            <a href="https://annalamontagane.github.io/liveSpace-IAT334/" class="ls-prototype-link" data-animate data-delay="440" target="_blank" rel="noopener">LANDING PAGE ↗</a>
+          </div>
+        </div>
+
+        <!-- Right: phone art -->
+        <div class="ls-card-right">
+          <div class="ls-card-art">
+            <img src="../assets/LiveSpace/Landing.png" alt="Live Space app on mobile devices">
+          </div>
+        </div>
+
+      </div><!-- /.ls-hero-card -->
+
+    </div><!-- /.ls-stack -->
+
+    <!-- ── Content card ── -->
+    <div class="ls-content-card">
+
+      <!-- Description -->
+      <section class="ls-card-section">
+        <div class="ls-desc-inner">
+          <span class="ls-section-label" data-animate="fade-only">Description</span>
+          <p data-animate data-delay="130">Live Space roots in a study in how small friction points compound into real frustration.</p>
+          <p data-animate data-delay="220">Turning mobile app designed to give residents of multi-unit buildings real-time visibility into shared amenities without leaving their unit.</p>
+        </div>
+      </section>
+
+      <!-- Acknowledgements -->
+      <section class="ls-card-section ls-card-section--sm">
+        <div class="ls-ack-inner">
+          <span class="ls-section-label" data-animate="fade-only">Acknowledgements</span>
+          <dl class="ls-ack-list" data-animate data-delay="130">
+            <dt>Supervisor</dt><dd>Instructor Paul Brokenshire</dd>
+            <dt>Co-author</dt><dd>Thu Le</dd>
+            <dt>Co-author</dt><dd>Esther Macaulay</dd>
+            <dt>Co-author</dt><dd>Sara Chung</dd>
+            <dt>Co-author</dt><dd>Anna Lamontagne</dd>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Overview -->
+      <section class="ls-card-section ls-card-section--sm">
+        <div class="ls-overview-inner">
+          <span class="ls-section-label" data-animate="fade-only">Overview</span>
+          <p data-animate data-delay="130"><strong>Live Space</strong> is a mobile app designed to simplify shared living by giving building residents real-time visibility into shared amenities without having to leave their apartment to check.</p>
+          <p data-animate data-delay="210">The project stemmed from interviews with residents who described the same silent frustration: walking to the gym, laundry room, or party space only to find it occupied. Every failed trip stacked a small annoyance on top of the last, until the building's amenities felt more like gambles than conveniences.</p>
+        </div>
+      </section>
+
+      <!-- Main Features -->
+      <section class="ls-features">
+        <div class="ls-features-inner">
+          <h2 class="ls-section-label" data-animate="fade-only">Main Features</h2>
+          <div class="ls-features-showcase">
+
+            <div class="ls-feat-text ls-feat-text--left" data-animate data-delay="80">
+              <strong class="ls-feat-title">Check Amenities</strong>
+              <p class="ls-feat-body">See what's available in your building in real time, from laundry machines to parking spaces.</p>
+            </div>
+
+            <div class="ls-phone-wrap ls-phone-wrap--lower" data-animate data-delay="160">
+              <video class="ls-screen-video" autoplay muted loop playsinline>
+                <source src="../assets/LiveSpace/Check amenities.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="ls-phone-wrap ls-phone-wrap--higher" data-animate data-delay="240">
+              <video class="ls-screen-video" autoplay muted loop playsinline>
+                <source src="../assets/LiveSpace/Booking amenities.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="ls-feat-text ls-feat-text--right" data-animate data-delay="320">
+              <strong class="ls-feat-title">Book Amenities</strong>
+              <p class="ls-feat-body">Reserve shared spaces and amenities in advance so you can plan your day with confidence.</p>
+            </div>
+
+          </div>
+
+          <div class="ls-features-showcase">
+
+            <div class="ls-feat-text ls-feat-text--left" data-animate data-delay="80">
+              <strong class="ls-feat-title">Move-in / Move-out</strong>
+              <p class="ls-feat-body">Streamline your move-in and move-out process with our easy-to-use tools and resources.</p>
+            </div>
+
+            <div class="ls-phone-wrap ls-phone-wrap--higher" data-animate data-delay="160">
+              <video class="ls-screen-video" autoplay muted loop playsinline>
+                <source src="../assets/LiveSpace/Booking amenities.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="ls-phone-wrap ls-phone-wrap--lower" data-animate data-delay="240">
+              <video class="ls-screen-video" autoplay muted loop playsinline>
+                <source src="../assets/LiveSpace/Check amenities.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="ls-feat-text ls-feat-text--right" data-animate data-delay="320">
+              <strong class="ls-feat-title">Get notifications</strong>
+              <p class="ls-feat-body">Stay informed about important updates and changes to your building or community.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- What I worked on -->
+      <section class="ls-card-section ls-card-section--sm">
+        <div class="ls-worked-inner">
+          <span class="ls-section-label" data-animate="fade-only">What I worked on</span>
+          <div class="ls-worked-items">
+            <p data-animate data-delay="130">Conducted interviews that surfaced the three core pain points: guessing availability, friction in the booking process, and difficulty reaching building management</p>
+            <p data-animate data-delay="210">Designed the UX/UI across the full app</p>
+            <p data-animate data-delay="290">Built the project landing page in HTML, CSS, and JavaScript</p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.ls-content-card -->
+
+    <!-- ── Next project ── -->
+    <section class="ls-next">
+      <span class="ls-next-label" data-animate="fade-only">Next Project</span>
+      <a href="../Project/ForgottenPages.html" class="ls-next-link" data-animate data-delay="120">Forgotten Pages →</a>
+    </section>
+
+  </main>
+
+  <script src="../js/liveSpace.js" defer></script>
+</body>
+</html>

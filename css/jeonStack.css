@@ -1,0 +1,500 @@
+/* ============================================================
+   JEON STACK — Card-style case study
+   Outer: near-black deep green (#030c07)
+   Card:  deep forest green (#0d2b22) — the page itself is the card
+   ============================================================ */
+
+:root {
+  --js-outer:  #030c07;
+  --js-card:   #0d2b22;
+  --js-ink:    #f0ece6;
+  --js-mid: white;
+  /* --js-mid:    rgba(240, 236, 230, 0.70); */
+  --js-muted:  rgba(240, 236, 230, 0.42);
+}
+
+/* ── Page base ── */
+body {
+  background: var(--js-outer);
+  color: var(--js-ink);
+  min-height: 100vh;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   OUTER NAV — sits on the dark outer background
+   ============================================================ */
+
+.js-outer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1.5rem;
+  top: 0;
+  z-index: 200;
+  position: sticky;
+}
+
+.js-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  order: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.js-close:hover { 
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* ============================================================
+   PROJECT NAVIGATION STACK
+   Peek card sits behind the hero card; only its top 16px strip
+   is visible. Hero is pushed down 16px to expose the strip.
+   ============================================================ */
+
+.js-stack {
+  position: relative;
+}
+
+/* Hero flows naturally — pushed down 60px so peek strips are visible above it */
+.js-stack .js-hero-card {
+  position: relative;
+  margin-top: 60px;
+  min-height: unset;
+  z-index: 4;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+.js-peek-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 32px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+
+/* Positions by DOM order */
+.js-peek-card:nth-child(1) { top: 0;    z-index: 1; }
+.js-peek-card:nth-child(2) { top: 20px; z-index: 2; }
+.js-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+
+/* Colors by project */
+.js-peek-card--forgotten { background: var(--background-fp-card); }
+.js-peek-card--livespace { background: var(--background-ls-card); }
+.js-peek-card--seoul     { background: var(--background-sf-card); }
+
+/* Hover */
+.js-peek-card:hover ~ .js-peek-card,
+.js-peek-card:hover ~ .js-hero-card {
+  transform: translateY(7px);
+}
+
+.js-peek-card__label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.js-peek-card--forgotten .js-peek-card__label { color: var(--font-color-fp); }
+.js-peek-card--livespace .js-peek-card__label { color: var(--font-color-ls); }
+.js-peek-card--seoul     .js-peek-card__label { color: var(--font-color-sf); }
+
+.js-peek-card:hover .js-peek-card__label {
+  opacity: 1;
+}
+
+/* ============================================================
+   MAIN WRAPPER — constrains and centers the cards
+   ============================================================ */
+
+.js-main {
+  padding: 0 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ============================================================
+   CARDS — hero (rounded top) + content (rounded bottom)
+   ============================================================ */
+
+.js-hero-card,
+.js-content-card {
+  background: var(--js-card);
+}
+
+.js-hero-card    { border-radius: 20px 20px 0 0; overflow: hidden; }
+.js-content-card { border-radius: 0 0 20px 20px; overflow: hidden; }
+
+/* Padded region inside a card */
+.js-pad {
+  padding: 2.25rem 2.5rem;
+}
+
+/* ============================================================
+   TITLE + TAGLINE
+   ============================================================ */
+
+.js-title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--js-ink);
+  margin: 0 0 2.5rem;
+  display: flex;
+  letter-spacing: 0.10rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+
+.js-tagline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.js-tagline__quote {
+  font-style: italic;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--js-ink);
+  margin: 0;
+  padding-left:20rem;
+}
+
+.js-tagline__tags {
+  font-size: var(--font-size-base);
+  text-align: right;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 25ch;
+}
+
+/* ============================================================
+   PHOTO STRIP — full card width, bleeds to card edges
+   ============================================================ */
+
+.js-strip {
+  margin-top: 2.5rem;
+  transform: translateY(var(--parallax-y, 0px));
+  will-change: transform;
+}
+
+.js-strip img {
+  width: 100%;
+  height: clamp(100%, 22vw, 240px);
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   LAMP + CREDITS BLOCK
+   ============================================================ */
+
+.js-credits-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+  /* align-items: center; */
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+  min-height: calc(130vh - 64px);
+}
+
+.js-lamp-photo {
+  line-height: 0;
+  transform: translateX(15rem) translateY(var(--parallax-y, 0px));
+  will-change: transform;
+}
+
+.js-lamp-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.js-credits-content {
+  padding-top: 20rem;
+}
+
+.js-credits-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.875rem;
+  margin: 0 0 1.125rem;
+  padding: 0;
+}
+
+.js-credits-list dt {
+  font-size: var(--font-size-base);
+  color: var(--js-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  align-self: baseline;
+}
+
+.js-credits-list dd {
+  font-size: var(--font-size-base);
+  color: var(--js-mid);
+  margin: 0;
+  align-self: baseline;
+}
+
+.js-credits-note {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--js-mid);
+  margin: 0;
+  padding-right: 20rem;
+}
+
+/* ============================================================
+   PULL QUOTE
+   ============================================================ */
+
+.js-pullquote {
+  font-size: var(--font-size-base);
+  color: var(--js-mid);
+  padding-right: 20rem;
+  margin-top: 30rem;
+}
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+
+.js-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 20rem;
+}
+
+.js-section:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.js-section--last {
+  padding-bottom: 0;
+}
+
+.js-section__label {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--js-ink);
+  margin: 0 0 1rem;
+  letter-spacing: 0.005em;
+}
+
+.js-section p {
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  color: var(--js-mid);
+  margin: 0 0 1.125rem;
+  padding-right: 40rem;
+}
+
+.js-section p:last-child { margin-bottom: 0; }
+
+/* ── ArUco markers ── */
+.js-markers {
+  display: flex;
+  gap: 1rem;
+  margin: 1.25rem 0 1rem;
+}
+
+.js-markers img {
+  width: 20%;
+  height: auto;
+  display: block;
+}
+
+.js-caption {
+  font-size: var(--font-size-base) !important;
+  color: var(--js-muted) !important;
+  line-height: 1.6;
+  margin: 0 0 1.125rem !important;
+}
+
+/* ── System diagram ── */
+.js-diagram {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 1.25rem;
+  width: 90%
+}
+
+.js-diagram img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Video ── */
+.js-video {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--js-outer);
+  margin-top: 1rem;
+  width: 90%;
+  height:90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.js-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ── What I worked on ── */
+.js-work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.js-work-item {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--js-mid);
+}
+
+/* ============================================================
+   NEXT PROJECT (dark, outside cards)
+   ============================================================ */
+
+.js-next {
+  padding: 1.5rem 8rem 0.5rem;
+  display:flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.js-next-label {
+  display: block;
+  font-size: var(--font-size-base);
+  color: var(--js-muted);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.js-next-link {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.js-next-link:hover { color: #fff; }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+  transition:
+    opacity  820ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate="fade-only"] {
+  opacity: 0;
+  transform: none;
+  will-change: opacity;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate="illustration"] {
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: transform, opacity;
+  transition:
+    opacity  950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate].revealed,
+[data-animate="fade-only"].revealed,
+[data-animate="illustration"].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .js-main { padding: 0 0.75rem 2rem; }
+
+  .js-pad { padding: 1.75rem 1.5rem; }
+
+  .js-hero-card    { border-radius: 16px 16px 0 0; }
+  .js-content-card { border-radius: 0 0 16px 16px; }
+
+  .js-tagline {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .js-tagline__tags { text-align: left; }
+
+  .js-strip img { height: 140px; }
+
+  .js-credits-block {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .js-pullquote {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .js-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}

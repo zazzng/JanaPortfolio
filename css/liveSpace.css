@@ -1,0 +1,603 @@
+/* ============================================================
+   LIVESPACE — Deep teal product case study
+   ============================================================
+   Palette: deep teal cards · white type
+   ============================================================ */
+
+:root {
+  --ls-card:        #08605F;
+  --ls-outer:       #041c1b;
+
+  --ls-text:        rgba(255, 255, 255);
+  --ls-text-mid:    rgba(255, 255, 255);
+  --ls-label:       rgba(255, 255, 255);
+  --ls-sep:         rgba(255, 255, 255);
+}
+
+/* ---- Page base ---- */
+body {
+  background: var(--ls-outer);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   OUTER NAVIGATION
+   ============================================================ */
+
+.ls-outer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.ls-back {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ls-back:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* ============================================================
+   MAIN WRAPPER
+   ============================================================ */
+
+.ls-main {
+  padding: 0 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-hero-card,
+.ls-content-card {
+  background: var(--ls-card);
+}
+
+.ls-hero-card    { border-radius: 20px 20px 0 0; overflow: hidden; }
+.ls-content-card { border-radius: 0 0 20px 20px; overflow: hidden; }
+
+/* ============================================================
+   HERO CARD — LEFT: text  |  RIGHT: phone art
+   ============================================================ */
+
+.ls-hero-card {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: calc(100vh - 64px);
+}
+
+/* Left: brand + meta text */
+.ls-card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(2.5rem, 20vh, 8rem);
+  padding: 2rem 2rem 3rem 10rem;
+}
+
+.ls-card-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ls-text);
+  flex-shrink: 0;
+}
+
+.ls-brand-mark {
+  font-size: 0.7rem;
+  opacity: 0.55;
+}
+
+.ls-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  
+}
+
+.ls-card-title {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.40;
+  color: var(--ls-text);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.ls-card-tags {
+  font-size: var(--font-size-base);
+  color: var(--ls-text-mid);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ls-card-timeline {
+  font-size: 0.875rem;
+  color: var(--ls-label);
+  margin: 0;
+}
+
+.ls-prototype-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--ls-text-mid);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.22);
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.ls-prototype-link:hover {
+  color: var(--ls-text);
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Right: phone art (fills column, bleeds bottom) */
+.ls-card-right {
+  overflow: hidden;
+  position: relative;
+}
+
+.ls-card-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-card-art img {
+  width: 108%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+}
+
+/* ============================================================
+   NAVIGATION STACK
+   ============================================================ */
+
+.ls-stack {
+  position: relative;
+  height: calc(100vh - 64px);
+}
+
+.ls-stack .ls-hero-card {
+  position: absolute;
+  top: 60px;
+  left: 0; right: 0; bottom: 0;
+  min-height: unset;
+  z-index: 4;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+.ls-peek-card {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+/* Positions by DOM order */
+.ls-peek-card:nth-child(1) { top: 0;    z-index: 1; }
+.ls-peek-card:nth-child(2) { top: 20px; z-index: 2; }
+.ls-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+
+/* Colors by project */
+.ls-peek-card--jeon      { background: var(--background-js-card); }
+.ls-peek-card--forgotten { background: var(--background-fp-card); }
+.ls-peek-card--seoul     { background: var(--background-sf-card); }
+
+/* Hover */
+.ls-peek-card:hover ~ .ls-peek-card,
+.ls-peek-card:hover ~ .ls-hero-card {
+  transform: translateY(7px);
+}
+
+.ls-peek-card__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.ls-peek-card--jeon      .ls-peek-card__label { color: var(--font-color-js); }
+.ls-peek-card--forgotten .ls-peek-card__label { color: var(--font-color-fp); }
+.ls-peek-card--seoul     .ls-peek-card__label { color: var(--font-color-sf); }
+
+.ls-peek-card:hover .ls-peek-card__label { opacity: 1; }
+
+/* ============================================================
+   CONTENT CARD — sections
+   ============================================================ */
+
+.ls-content-card {
+  padding: 0;
+}
+
+.ls-card-section {
+  padding: 5rem 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  min-height: calc(100vh - 64px);
+  justify-content: center;
+}
+
+.ls-card-section--sm {
+  min-height: auto;
+  padding: 3.5rem 10rem;
+}
+
+.ls-divider {
+  border: none;
+  border-top: 1px solid var(--ls-sep);
+  margin: 0;
+}
+
+.ls-section-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ls-label);
+}
+
+.ls-content-card p {
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  color: var(--ls-text-mid);
+  margin: 0;
+}
+
+.ls-content-card strong {
+  color: var(--ls-text);
+  font-weight: 600;
+}
+
+/* ---- Description ---- */
+.ls-desc-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 56ch;
+}
+
+.ls-desc-inner p {
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ls-text);
+}
+
+/* ---- Acknowledgements ---- */
+.ls-ack-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ls-ack-list {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.5rem 2rem;
+  margin: 0;
+}
+
+.ls-ack-list dt {
+  font-size: var(--font-size-base);
+  color: var(--ls-label);
+  font-weight: 400;
+}
+
+.ls-ack-list dd {
+  font-size: var(--font-size-base);
+  color: var(--ls-text);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ---- What I worked on ---- */
+.ls-worked-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.ls-worked-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.ls-worked-items p {
+  color: var(--ls-text-mid);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ---- Overview ---- */
+.ls-overview-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 60ch;
+}
+
+/* ============================================================
+   NEXT PROJECT
+   ============================================================ */
+
+.ls-next {
+  padding: 1.5rem 8rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ls-next-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.30);
+}
+
+.ls-next-link {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ls-next-link:hover { color: #fff; }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(26px);
+  will-change: transform, opacity;
+  transition:
+    opacity  820ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate="fade-only"] {
+  opacity: 0;
+  transform: none;
+  will-change: opacity;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-animate].revealed,
+[data-animate="fade-only"].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   MAIN FEATURES — Video phone mockups
+   ============================================================ */
+
+.ls-features {
+  padding: 3rem 10rem 5rem;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ls-features-inner {
+  width: 100%;
+}
+
+.ls-features-heading {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
+  letter-spacing: 0.01em;
+  margin: 0 0 3rem;
+}
+
+/* [text-left] [phone-lower] [phone-higher] [text-right] */
+.ls-features-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.ls-features-showcase + .ls-features-showcase {
+  margin-top: clamp(7rem, 20vh, 10rem);
+}
+
+.ls-feat-text {
+  flex: 0 0 auto;
+  width: clamp(130px, 13vw, 175px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ls-feat-text--left  { text-align: right; margin-top: clamp(10rem, 15vh, 20rem); }
+.ls-feat-text--right { text-align: left; }
+
+.ls-feat-title {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.3;
+}
+
+.ls-feat-body {
+  font-size: var(--font-size-base);
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.ls-phone-wrap { flex: 0 0 auto; }
+
+/* Left phone staggered down */
+.ls-phone-wrap--lower {
+  margin-top: clamp(110px, 60vh, 128px);
+}
+
+.ls-screen-video {
+  display: block;
+  width: clamp(160px, 15vw, 220px);
+  height: auto;
+  border-radius: 40px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.ls-phone-wrap--higher .ls-screen-video {
+  width: clamp(240px, 22.5vw, 330px);
+  border-radius: 60px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .ls-features { padding: 2.5rem 6rem 4rem; }
+}
+
+@media (max-width: 1024px) {
+  .ls-card-section     { padding: 4rem 6rem; }
+  .ls-card-section--sm { padding: 3rem 6rem; }
+  .ls-features         { padding: 2.5rem 4rem 4rem; }
+}
+
+@media (max-width: 768px) {
+  /* Collapse stack to normal flow */
+  .ls-stack {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ls-peek-card {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    height: 16px;
+    border-radius: 20px 20px 0 0;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .ls-peek-card:nth-child(n+2) { border-radius: 0; }
+
+  .ls-peek-card:hover ~ .ls-peek-card,
+  .ls-peek-card:hover ~ .ls-hero-card {
+    transform: none;
+  }
+
+  .ls-peek-card__label { opacity: 1; }
+
+  .ls-stack .ls-hero-card {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    min-height: unset;
+    z-index: auto;
+    flex: 1;
+    border-radius: 0;
+  }
+
+  /* Single-column hero */
+  .ls-hero-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .ls-card-left  { padding: 1.75rem 1.5rem 2rem; }
+
+  .ls-card-right {
+    min-height: 60vw;
+    order: -1;
+  }
+
+  .ls-card-art img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ls-card-section        { padding: 3rem 1.75rem; min-height: auto; }
+  .ls-card-section--sm   { padding: 2.5rem 1.75rem; }
+  .ls-desc-inner p       { font-size: 1.375rem; }
+  .ls-next               { padding: 1.5rem 1.5rem 0.5rem; }
+
+  /* Features: stack text above phones, remove stagger */
+  .ls-features { padding: 2.5rem 1.75rem 3.5rem; }
+  .ls-features-showcase { flex-wrap: wrap; justify-content: center; gap: 1.25rem 1.5rem; }
+  .ls-feat-text--left  { order: 1; width: 100%; text-align: center; }
+  .ls-phone-wrap--lower  { order: 2; margin-top: 0; }
+  .ls-phone-wrap--higher { order: 3; }
+  .ls-feat-text--right { order: 4; width: 100%; text-align: center; }
+  .ls-screen-video { width: min(165px, 42vw); border-radius: 22px; }
+}
+
+@media (max-width: 480px) {
+  .ls-main         { padding: 0 0.625rem 2rem; }
+  .ls-hero-card    { border-radius: 16px 16px 0 0; }
+  .ls-peek-card    { border-radius: 16px 16px 0 0; }
+  .ls-content-card { border-radius: 0 0 16px 16px; }
+  .ls-outer-nav    { padding: 0.625rem 1rem; }
+  .ls-desc-inner p { font-size: 1.25rem; }
+  .ls-ack-list     { grid-template-columns: 6rem 1fr; }
+
+  /* Features: full column stack */
+  .ls-features-showcase { flex-direction: column; align-items: center; }
+  .ls-phone-wrap--lower,
+  .ls-phone-wrap--higher { order: unset; }
+  .ls-feat-text--left,
+  .ls-feat-text--right   { order: unset; }
+  .ls-screen-video { width: min(190px, 58vw); border-radius: 20px; }
+}
