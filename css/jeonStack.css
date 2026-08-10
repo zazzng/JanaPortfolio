@@ -30,7 +30,7 @@ body::before {
 
   background-image: url(../assets/World/texture.png);
   background-repeat: repeat;
-  opacity: 0.15;
+  opacity: 0.05;
 }
 
 /* ============================================================
@@ -47,12 +47,12 @@ body::before {
   position: sticky;
 }
 
-.js-close {
+.close {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--close-button);
+  color: var(--close-button-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,9 +63,9 @@ body::before {
   transition: background 0.2s, color 0.2s;
 }
 
-.js-close:hover { 
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
+.close:hover { 
+  background: var(--close-hover-button-bg);
+  color: var(--close-hover-button-text);
 }
 
 /* ============================================================
@@ -81,7 +81,7 @@ body::before {
 /* Hero flows naturally — pushed down 60px so peek strips are visible above it */
 .js-stack .js-hero-card {
   position: relative;
-  margin-top: 60px;
+  margin-top: 80px;
   min-height: unset;
   z-index: 4;
   will-change: transform;
@@ -109,11 +109,13 @@ body::before {
 .js-peek-card:nth-child(1) { top: 0;    z-index: 1; }
 .js-peek-card:nth-child(2) { top: 20px; z-index: 2; }
 .js-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+.js-peek-card:nth-child(4) { top: 60px; z-index: 4; }
 
 /* Colors by project */
 .js-peek-card--forgotten { background: var(--background-fp-card); }
 .js-peek-card--livespace { background: var(--background-ls-card); }
 .js-peek-card--seoul     { background: var(--background-sf-card); }
+.js-peek-card--tesla     { background: var(--background-tc-card); }
 
 /* Hover */
 .js-peek-card:hover ~ .js-peek-card,
@@ -134,6 +136,7 @@ body::before {
 .js-peek-card--forgotten .js-peek-card__label { color: var(--font-color-fp); }
 .js-peek-card--livespace .js-peek-card__label { color: var(--font-color-ls); }
 .js-peek-card--seoul     .js-peek-card__label { color: var(--font-color-sf); }
+.js-peek-card--tesla     .js-peek-card__label { color: var(--font-color-tc); }
 
 .js-peek-card:hover .js-peek-card__label {
   opacity: 1;
@@ -421,7 +424,7 @@ body::before {
 .js-next-label {
   display: block;
   font-size: var(--font-size-base);
-  color: var(--js-muted);
+  color: var(--next-label);
   font-weight: 500;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
@@ -430,12 +433,12 @@ body::before {
 .js-next-link {
   font-size: var(--font-size-base);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--next-link);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.js-next-link:hover { color: #fff; }
+.js-next-link:hover { color: var(--next-hover-link); }
 
 /* ============================================================
    SCROLL ANIMATIONS

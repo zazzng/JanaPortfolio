@@ -16,14 +16,13 @@
 :root {
   /* Colors */
   /* --white:     #f6e2d6; */
-  --outer:  #22355B;
+  --outer:  #F4F3EF;
   --off-white: #F8F7F5;
   --surface:   #F2F1EF;
   --border:    #E5E4E1;
   --ink-1:     #F9F6EE;   /* headings, high-contrast text */
   --ink-2:     #6B6966;   /* body text */
   --ink-3:     #A8A6A3;   /* labels, metadata, placeholders */
-  --ink-home-background: #22355B; /* background color for home page */
 
   /* Fonts Color */
   --fontColor: #0b2052;
@@ -50,12 +49,25 @@
   --background-js-card: #0d2b22;
   --background-ls-card: #08605F;
   --background-sf-card: #1a1f38;
+  --background-tc-card: rgb(255, 200, 87);
+
   --font-color-fp: rgba(70, 17, 7);
   --font-color-js: rgba(255, 255, 255);
   --font-color-ls: rgb(255, 255, 255);
   --font-color-sf: rgba(255, 255, 255);
+  --font-color-tc: rgb(19, 19, 19);
 
   --font-size-base: 1.125rem;
+
+  --next-label: #0b2052;
+  --next-link: #00123a;
+  --next-hover-link: #173f9f;
+
+  /* Close Button */
+  --close-button: rgba(15, 10, 74, 0.5);
+  --close-button-text: rgba(255, 255, 255);
+  --close-hover-button-text: rgba(255, 255, 255);
+  --close-hover-button-bg: rgba(15, 10, 74, 0.75);
 }
 
 /* ---- Reset ---- */

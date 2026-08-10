@@ -25,7 +25,7 @@ body::before {
 
   background-image: url(../assets/World/texture.png);
   background-repeat: repeat;
-  opacity: 0.15;
+  opacity: 0.05;
 }
 
 /* ============================================================
@@ -42,12 +42,12 @@ body::before {
   z-index: 200;
 }
 
-.sf-close {
+.close {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--close-button);
+  color: var(--close-button-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,8 +59,8 @@ body::before {
 }
 
 .sf-close:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
+  background: var(--close-hover-button-bg);
+  color: var(--close-hover-button-text);
 }
 /* ============================================================
    MAIN CARD WRAPPER
@@ -220,7 +220,7 @@ body::before {
 /* Hero card: pushed down 60px (3 peek strips × 20px each) */
 .sf-stack .sf-hero-card {
   position: absolute;
-  top: 60px;
+  top: 80px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -251,11 +251,13 @@ body::before {
 .sf-peek-card:nth-child(1) { top: 0;    z-index: 1; }
 .sf-peek-card:nth-child(2) { top: 20px; z-index: 2; }
 .sf-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+.sf-peek-card:nth-child(4) { top: 60px; z-index: 4; }
 
 /* Colors by project */
 .sf-peek-card--forgotten { background: var(--background-fp-card); }
 .sf-peek-card--jeon      { background: var(--background-js-card); }
 .sf-peek-card--livespace { background: var(--background-ls-card); }
+.sf-peek-card--tesla     { background: var(--background-tc-card); }
 
 /* Hover */
 .sf-peek-card:hover ~ .sf-peek-card,
@@ -276,6 +278,7 @@ body::before {
 .sf-peek-card--forgotten .sf-peek-card__label { color: var(--font-color-fp); }
 .sf-peek-card--jeon      .sf-peek-card__label { color: var(--font-color-js); }
 .sf-peek-card--livespace .sf-peek-card__label { color: var(--font-color-ls); }
+.sf-peek-card--tesla     .sf-peek-card__label { color: var(--font-color-tc); }
 
 .sf-peek-card:hover .sf-peek-card__label {
   opacity: 1;
@@ -512,7 +515,7 @@ body::before {
   display: block;
   font-size: var(--font-size-base);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--next-label);
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
@@ -520,12 +523,12 @@ body::before {
 .sf-next-link {
   font-size: var(--font-size-base);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--next-link);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.sf-next-link:hover { color: #fff; }
+.sf-next-link:hover { color: var(--next-hover-link); }
 
 /* ============================================================
    SCROLL ANIMATIONS

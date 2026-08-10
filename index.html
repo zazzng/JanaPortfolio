@@ -3,119 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jana — Product Designer & Data Analyst</title>
+  <title>Jana</title>
   <meta name="description" content="Jana is a Product Designer and Data Analyst, shaping decisions from first insight to final interface.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/World/Favicon.png">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-  <div class="home-layout">
 
-    <!-- ── Left Column ── -->
-    <div class="home-left">
-      <!--
-        hero-visual fills the full left column (position: absolute; inset: 0).
-        hero-visual__inner is the actual gray card.
-        The two .notch divs are white DOM elements sized to their text content —
-        they sit on top of the card corners and create the concave notch illusion.
-      -->
-      <div class="hero-visual">
-        <div class="hero-visual__inner">
-          <div class="hero-visual__placeholder">
-            <img src="../assets/World/PatternHomeScreen3.png" alt="LiveSpace project preview" class="hero-visual__img">
-          </div>
-        </div>
+  <main class="home">
 
-        <!-- Top-left notch: Jana label -->
-        <div class="notch notch--top">
-          <span class="home-name">Jana</span>
-        </div>
-
-        <!-- Bottom-left notch: title -->
-        <div class="notch notch--bottom">
-          <h1 class="home-title">Product Designer<br>&amp; Data Analyst</h1>
-        </div>
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero__meta" data-reveal>
+        <span class="hero__index">01</span>
+        <span class="hero__name">Jana</span>
       </div>
-    </div>
 
-    <!-- ── Right Column ── -->
-    <div class="home-right">
+      <h1 class="hero__title" data-reveal="d1">Product Design<br>&amp; Data Analyst</h1>
 
-      <!-- Bio -->
-      <div class="home-bio">
-        <p class="home-bio__text">Currently working on product design, using research and data to shape decisions from first insight to final interface.</p>
-        <div class="home-bio__links">
+      <div class="hero__foot">
+        <p class="hero__bio" data-reveal="d2">Jana is currently working on product design, using research and data to shape decisions from first insight to final interface.</p>
+        <div class="hero__links" data-reveal="d2">
           <a href="https://www.linkedin.com/in/jana-n-2a2355323/" class="pill-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
           <a href="mailto:thn@sfu.ca" class="pill-link" target="_blank" rel="noopener noreferrer">Email</a>
         </div>
       </div>
+    </section>
 
-      <!-- Scrollable Card Stack -->
-      <div class="card-stack" id="cardStack" tabindex="0" aria-label="Projects — scroll to browse">
-        <div class="card-stack__scene">
-
-          <!-- Card 0: LiveSpace (front on load) -->
-          <a href="Project/LiveSpace.html" class="stack-card live-space" data-pos="front">
-            <div class="stack-card__body live-space">
-              <p class="stack-card__title">LiveSpace</p>
-              <p class="stack-card__meta">Web Design · UX Design · UI Research</p>
-            </div>
-            <div class="stack-card__img">
-              <img src="../assets/LiveSpace/Landing.png" alt="LiveSpace project preview" class="stack-card__img-content">
-            </div>          
-            
-          </a>
-
-          <!-- Card 1: Forgotten Pages -->
-          <a href="Project/ForgottenPages.html" class="stack-card forgotten-pages" data-pos="mid">
-            <div class="stack-card__body forgotten-pages">
-              <p class="stack-card__title">Forgotten Pages</p>
-              <p class="stack-card__meta">Game Design</p>
-            </div>
-            <div class="stack-card__img">
-              <img src="../assets/ForgottenPages/Cat.png" alt="Forgotten Pages project preview" class="stack-card__img-content">
-            </div>           
-          </a>
-
-          <!-- Card 2: Seoul Festival Analytics -->
-          <a href="Project/SeoulFestivalAnalytics.html" class="stack-card seoul-festival" data-pos="back">
-            <div class="stack-card__body seoul-festival">
-              <p class="stack-card__title">Seoul Festival Analytics</p>
-              <p class="stack-card__meta">UI Design · Data Visualization</p>
-            </div>
-            <div class="stack-card__img"></div>
-          </a>
-
-          <!-- Card 3: Jeon Stack (hidden — scroll to reveal) -->
-          <a href="Project/JeonStack.html" class="stack-card jeon-stack" data-pos="incoming">
-            <div class="stack-card__body jeon-stack">
-              <p class="stack-card__title">Jeon Stack</p>
-              <p class="stack-card__meta">HCI · Computer Vision</p>
-            </div>
-            <div class="stack-card__img">
-              <img src="../assets/JeonStack/F1.png" alt="Jeon Stack project preview" class="stack-card__img-content">
-            </div>         
-          </a>
-
-        </div>
-
-        <!-- Scroll indicator dots -->
-        <div class="stack-dots" id="stackDots" aria-hidden="true">
-          <span class="stack-dot" data-dot="0"></span>
-          <span class="stack-dot" data-dot="1"></span>
-          <span class="stack-dot" data-dot="2"></span>
-          <span class="stack-dot" data-dot="3"></span>
-        </div>
-
+    <!-- ── Selected Works ── -->
+    <section class="work" id="work">
+      <div class="work__head" data-reveal>
+        <span class="work__index">02</span>
+        <span class="label work__label">Selected Works</span>
       </div>
 
-    </div>
-  </div>
+      <div class="work-list">
 
-  <script src="js/homeStack.js"></script>
+        <a href="Project/LiveSpace.html" class="work-item live-space" data-reveal>
+          <div class="work-item__head">
+            <span class="work-item__title">LiveSpace</span>
+            <span class="work-item__meta">Web Design · UX Design · UI Research</span>
+          </div>
+          <div class="work-item__media">
+            <img src="assets/LiveSpace/Landing.png" alt="LiveSpace project preview" class="work-item__img">
+          </div>
+        </a>
+
+        <a href="Project/ForgottenPages.html" class="work-item forgotten-pages" data-reveal>
+          <div class="work-item__head">
+            <span class="work-item__title">Forgotten Pages</span>
+            <span class="work-item__meta">Game Design</span>
+          </div>
+          <div class="work-item__media">
+            <img src="assets/ForgottenPages/Cat.png" alt="Forgotten Pages project preview" class="work-item__img">
+          </div>
+        </a>
+
+        <a href="Project/SeoulFestivalAnalytics.html" class="work-item seoul-festival" data-reveal>
+          <div class="work-item__head">
+            <span class="work-item__title">Seoul Festival Analytics</span>
+            <span class="work-item__meta">UI Design · Data Visualization</span>
+          </div>
+          <div class="work-item__media">
+            <img src="assets/SeoulFestival/Cover.png" alt="Seoul Festival Analytics project preview" class="work-item__img_Seoul">
+          </div>
+        </a>
+
+        <a href="Project/JeonStack.html" class="work-item jeon-stack" data-reveal>
+          <div class="work-item__head">
+            <span class="work-item__title">Jeon Stack</span>
+            <span class="work-item__meta">HCI · Computer Vision</span>
+          </div>
+          <div class="work-item__media">
+            <img src="assets/JeonStack/F1.png" alt="Jeon Stack project preview" class="work-item__img">
+          </div>
+        </a>
+
+        <a href="Project/TeslaCoaching.html" class="work-item tesla-coaching" data-reveal>
+          <div class="work-item__head">
+            <span class="work-item__title">RoadCoach</span>
+            <span class="work-item__meta">UX Research · UI Design · In-Car Product Concept</span>
+          </div>
+          <div class="work-item__media work-item__media--empty">
+            <img src="assets/TeslaCoaching/Driving1.png" alt="RoadCoach project preview" class="work-item__img">
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

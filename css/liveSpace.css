@@ -28,7 +28,7 @@ body::before {
 
   background-image: url(../assets/World/texture.png);
   background-repeat: repeat;
-  opacity: 0.15;
+  opacity: 0.05;
 }
 
 /* ============================================================
@@ -45,12 +45,12 @@ body::before {
   z-index: 200;
 }
 
-.ls-back {
+.close {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.10);
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--close-button);
+  color: var(--close-button-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,9 +60,9 @@ body::before {
   transition: background 0.2s, color 0.2s;
 }
 
-.ls-back:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
+.close:hover {
+  background: var(--close-hover-button-bg);
+  color: var(--close-hover-button-text);
 }
 
 /* ============================================================
@@ -197,7 +197,7 @@ body::before {
 
 .ls-stack .ls-hero-card {
   position: absolute;
-  top: 60px;
+  top: 80px;
   left: 0; right: 0; bottom: 0;
   min-height: unset;
   z-index: 4;
@@ -223,11 +223,13 @@ body::before {
 .ls-peek-card:nth-child(1) { top: 0;    z-index: 1; }
 .ls-peek-card:nth-child(2) { top: 20px; z-index: 2; }
 .ls-peek-card:nth-child(3) { top: 40px; z-index: 3; }
+.ls-peek-card:nth-child(4) { top: 60px; z-index: 4; }
 
 /* Colors by project */
 .ls-peek-card--jeon      { background: var(--background-js-card); }
 .ls-peek-card--forgotten { background: var(--background-fp-card); }
 .ls-peek-card--seoul     { background: var(--background-sf-card); }
+.ls-peek-card--tesla     { background: var(--background-tc-card); }
 
 /* Hover */
 .ls-peek-card:hover ~ .ls-peek-card,
@@ -247,6 +249,7 @@ body::before {
 .ls-peek-card--jeon      .ls-peek-card__label { color: var(--font-color-js); }
 .ls-peek-card--forgotten .ls-peek-card__label { color: var(--font-color-fp); }
 .ls-peek-card--seoul     .ls-peek-card__label { color: var(--font-color-sf); }
+.ls-peek-card--tesla     .ls-peek-card__label { color: var(--font-color-tc); }
 
 .ls-peek-card:hover .ls-peek-card__label { opacity: 1; }
 
@@ -390,18 +393,18 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.30);
+  color: var(--next-label);
 }
 
 .ls-next-link {
   font-size: var(--font-size-base);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--next-link);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.ls-next-link:hover { color: #fff; }
+.ls-next-link:hover { color: var(--next-hover-link); }
 
 /* ============================================================
    SCROLL ANIMATIONS
