@@ -367,8 +367,7 @@ body::before {
   border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* ---- Overview ---- */
-.ls-overview-inner {
+.ls-inner {
   display: flex;
   flex-direction: column;
   gap: 1rem;

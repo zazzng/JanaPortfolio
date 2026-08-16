@@ -38,7 +38,34 @@ body {
    HERO
 ───────────────────────────── */
 .hero {
-  padding-block: clamp(4rem, 11vw, 7.5rem) clamp(3rem, 6vw, 5rem);
+  display: flex;
+  align-items: stretch;
+  /* gap: clamp(2rem, 4vw, 4rem); */
+  min-height: min(100vh, 780px);
+  padding-block: clamp(4rem, 11vw, 8rem) clamp(3rem, 6vw, 6rem);
+}
+
+.hero__content {
+  flex: 0 0 clamp(22rem, 33vw, 33rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+.hero__pattern {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.hero__pattern-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .hero__meta {
@@ -73,7 +100,7 @@ body {
   position: relative;
   font-family: var(--font-sans);
   font-weight: 650;
-  font-size: clamp(3rem, 8vw, 7.25rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   line-height: 0.98;
   letter-spacing: -0.02em;
   color: var(--fontColor);
@@ -116,10 +143,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
-  margin-top: clamp(2.5rem, 7vw, 5rem);
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--home-border);
+  gap: 0.5rem;
+  /* margin-top: clamp(2.5rem, 7vw, 5rem); */
+  padding-top: 0rem;
 }
 
 .hero__bio {
@@ -127,7 +153,8 @@ body {
   font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   line-height: 1.6;
   color: var(--home-ink-2);
-  max-width: 34ch;
+  max-width: 30ch;
+  padding-top: 2rem;
 }
 
 .hero__links {
@@ -159,7 +186,7 @@ body {
    SELECTED WORKS
 ───────────────────────────── */
 .work {
-  padding-block: clamp(1rem, 4vw, 2rem) clamp(6rem, 11vw, 9rem);
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(9rem, 13vw, 11rem);
 }
 
 .work__head {
@@ -183,7 +210,7 @@ body {
 
 .work-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(0.75rem, 1.5vw, 1.25rem);
 }
 
@@ -286,6 +313,19 @@ body {
 /* ── Mobile ── */
 @media (max-width: 768px) {
   html, body { overflow: auto; }
+
+  .hero {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero__content {
+    flex: none;
+  }
+
+  .hero__pattern {
+    height: 340px;
+  }
 
   .hero__meta { margin-bottom: 2.25rem; }
 

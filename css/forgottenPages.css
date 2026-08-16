@@ -287,11 +287,11 @@ body::before {
 
 /* Each section inside the single content card */
 .fp-card-section {
-  padding: 2.5rem 12rem 3rem 12rem;
+  padding: 8rem 12rem 3rem 12rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  min-height: calc(100vh - 64px);
+  min-height: calc(30vh - 64px);
   justify-content: center;
 }
 
@@ -325,7 +325,7 @@ body::before {
 }
 
 /* ---- Description: single-column, compact, left-aligned ---- */
-.fp-desc-inner {
+.fp-inner {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
