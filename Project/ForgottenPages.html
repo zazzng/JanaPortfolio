@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/World/Favicon.png">
   <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case-study.css">
   <link rel="stylesheet" href="../css/forgottenPages.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
   <main class="fp-main">
 
     <!-- ── Navigation stack: peek card peeks above hero ── -->
-    <!-- <div class="fp-stack">
+    <div class="fp-stack">
 
       <a href="../Project/LiveSpace.html" class="fp-peek-card fp-peek-card--livespace" aria-label="Next project: Live Space">
         <span class="fp-peek-card__label">✦ Live Space</span>
@@ -38,35 +39,35 @@
 
       <a href="../Project/TeslaCoaching.html" class="fp-peek-card fp-peek-card--tesla" aria-label="Next project: RoadCoach">
         <span class="fp-peek-card__label">✦ RoadCoach</span>
-      </a> -->
+      </a>
 
     <!-- ── Hero card ── -->
     <div class="fp-hero-card">
 
       <!-- Left: brand mark + illustration -->
-      <div class="fp-card-left">
-        <div class="fp-card-brand" data-animate="fade-only" data-delay="80">
-          <span class="fp-brand-mark">✦</span>
-          Forgotten Pages
-        </div>
+      <!-- <div class="fp-card-left">
         <div class="fp-card-art">
           <img src="../assets/ForgottenPages/Cat.png" alt="Illustrated cat writing with a pencil">
         </div>
-      </div>
+      </div> -->
 
       <!-- Right: title + meta -->
       <div class="fp-card-right">
-        <h1 class="fp-card-title" data-animate data-delay="160">Turns the feeling of piecing together a lost memory into an interaction</h1>
-        <p class="fp-card-timeline" data-animate data-delay="300">4 weeks project (2025)</p>
-        <p class="fp-card-tags" data-animate data-delay="420">
-          Interactive System<br>
-          Game Prototype * Creative Technology
+        <div class="fp-card-brand" data-animate="fade-only">
+          <span class="fp-brand-mark">✦</span>
+          Forgotten Pages
+        </div>
+        <h1 class="fp-card-title" data-animate data-delay="80">Turns the feeling of piecing together a lost memory into an interaction</h1>
+        <p class="fp-card-timeline" data-animate data-delay="160">4 weeks project (2025)</p>
+        <p class="fp-card-tags" data-animate data-delay="240">
+          Game Design<br>
+          
         </p>
       </div>
 
     </div><!-- /.fp-hero-card -->
 
-    <!-- </div>/.fp-stack -->
+    </div><!-- /.fp-stack -->
 
     <div class="fp-content-card">
 
@@ -74,9 +75,9 @@
       <section class="fp-card-section">
         <div class="fp-inner">
           <span class="fp-section-label fp-desc-label" data-animate="fade-only">Description</span>
-          <p data-animate data-delay="130">Set in a quiet bedroom frozen in time, the experience guides a player through recovering a forgotten diary password through <strong>spatial exploration</strong> and <strong>object placement</strong>.</p>
-          <p data-animate data-delay="260">Every item in the room is a memory <strong>token</strong>. Every token returned to its rightful place <strong>unlocks</strong> a fragment of something lost.</p>
-          <div class="fp-desc-images" data-animate="illustration" data-delay="420">
+          <p data-animate data-delay="80">Set in a quiet bedroom frozen in time, the experience guides a player through recovering a forgotten diary password through <strong>spatial exploration</strong> and <strong>object placement</strong>.</p>
+          <p data-animate data-delay="160">Every item in the room is a memory <strong>token</strong>. Every token returned to its rightful place <strong>unlocks</strong> a fragment of something lost.</p>
+          <div class="fp-desc-images" data-animate="illustration" data-delay="240">
             <img class="fp-pillow fp-parallax" src="../assets/ForgottenPages/Pillow.png" alt="Decorative pillow token">
             <img class="fp-cat-rug fp-parallax" src="../assets/ForgottenPages/CatOnRug.png" alt="Cat resting on a golden rug">
           </div>
@@ -87,7 +88,7 @@
       <!-- <section class="fp-card-section">
         <div class="fp-inner">
           <span class="fp-section-label" data-animate="fade-only">Target Users</span>
-          <p data-animate data-delay="130">The game is designed for those who prefer a chill experience where they can simply enjoy the atmosphere and narrative without the pressure of intense gameplay.</p>
+          <p data-animate data-delay="80">The game is designed for those who prefer a chill experience where they can simply enjoy the atmosphere and narrative without the pressure of intense gameplay.</p>
         </div>
       </section> -->
 
@@ -95,14 +96,14 @@
       <!-- <section class="fp-card-section">
         <div class="fp-inner">
           <span class="fp-section-label" data-animate="fade-only">Pain Points</span>
-          <p data-animate data-delay="130">I don't want to create a game that is too complex or overwhelming for the player. I want to give a game that player can enjoy on a slow day.</p>
+          <p data-animate data-delay="80">I don't want to create a game that is too complex or overwhelming for the player. I want to give a game that player can enjoy on a slow day.</p>
         </div>
       </section> -->
 
       <!-- Prototype video -->
       <section class="fp-card-section">
         <span class="fp-section-label" data-animate="fade-only">Prototype Video</span>
-        <div class="fp-video-embed" data-animate data-delay="140">
+        <div class="fp-video-embed" data-animate="illustration" data-delay="80">
           <!-- <video class ="fp-prototype-video" autoplay muted loop playsinline>
             <source src="../assets/ForgottenPages/ForgottenGame.mp4" type="video/mp4">
           </video> -->
@@ -118,12 +119,12 @@
       <!-- What I Built -->
       <section class="fp-card-section">
         <div class="fp-built-grid">
-          <div class="fp-built-item" data-animate data-delay="0">
+          <div class="fp-built-item" data-animate="illustration">
             <img src="../assets/ForgottenPages/ForgottenPages-cover.png" alt="Forgotten Pages game title screen">
             <span class="fp-section-label">What I Built</span>
             <p>Developed the project <strong>end-to-end in an OOP framework</strong>, from system architecture to the final playable build</p>
           </div>
-          <div class="fp-built-item" data-animate data-delay="150">
+          <div class="fp-built-item" data-animate="illustration" data-delay="80">
             <img src="../assets/ForgottenPages/GameDesign.gif" alt="Interactive bedroom environment">
             <p>Constructed the full bedroom environment as an <strong>interactive space</strong> where every object serves a functional and narrative role</p>
           </div>
@@ -135,11 +136,12 @@
     <!-- ── Next project ── -->
     <section class="fp-next">
       <span class="fp-next-label" data-animate="fade-only">Next Project</span>
-      <a href="../Project/SeoulFestivalAnalytics.html" class="fp-next-link" data-animate data-delay="120">Seoul Festival →</a>
+      <a href="../Project/SeoulFestivalAnalytics.html" class="fp-next-link" data-animate data-delay="80">Seoul Festival - Data Visualization · Web Design →</a>
     </section>
 
   </main>
 
   <script src="../js/forgottenPages.js" defer></script>
+  <script src="../js/projectStack.js" defer></script>
 </body>
 </html>

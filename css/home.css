@@ -1,31 +1,22 @@
 /* ============================================================
-   HOME — Soft Swiss / Contemporary Editorial
+   HOME — Apple × Swiss
    ============================================================
-   Palette + layout are scoped to the homepage only (these tokens
-   are declared here, not in base.css, so other pages keep their
-   own dark theme untouched).
+   Flat off-white ground, one 12-column grid, one accent used
+   only on the primary CTAs. No decorative animation — entrance
+   motion comes solely from the shared [data-reveal] fade/rise.
    ============================================================ */
 
 :root {
-  --home-bg:      #F4F3EF;
-  --home-ink:     #252525;
-  --home-ink-2:   #777774;
-  --home-border:  #D8D7D2;
-  --home-sage:    #A7B8A3;
-  --home-gutter:  clamp(1.5rem, 6vw, 5rem);
+  --home-gutter: clamp(1.5rem, 6vw, 5rem);
 }
 
 html, body {
   overflow-x: hidden;
-  background: var(--home-bg);
+  background: var(--bg);
 }
 
 body {
-  color: var(--home-ink);
-  background-image:
-    linear-gradient(rgba(244, 243, 239, 0.95), rgba(244, 243, 239, 0.95)),
-    url(../assets/World/texture.png);
-  background-repeat: no-repeat, repeat;
+  color: var(--ink-1);
 }
 
 .home {
@@ -35,146 +26,59 @@ body {
 }
 
 /* ─────────────────────────────
-   HERO
+   MASTHEAD
+   The work leads the page now, so the top carries only the
+   name and the way through to About.
 ───────────────────────────── */
-.hero {
-  display: flex;
-  align-items: stretch;
-  /* gap: clamp(2rem, 4vw, 4rem); */
-  min-height: min(100vh, 780px);
-  padding-block: clamp(4rem, 11vw, 8rem) clamp(3rem, 6vw, 6rem);
-}
-
-.hero__content {
-  flex: 0 0 clamp(23rem, 33vw, 33rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-content: center; */
-}
-
-.hero__pattern {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.hero__pattern-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
-.hero__meta {
+.home-head {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3rem);
 }
 
-.hero__index {
+.home-head__mark {
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--home-ink-2);
-}
-
-.hero__title {
-  position: relative;
-  font-family: var(--font-sans);
-  font-weight: 650;
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-  color: var(--fontColor);
-  max-width: 22ch;
-  opacity: 0;
-  transform: translateX(-120px);
-  animation: heroTitleIn 2.2s cubic-bezier(0.3, 0.8, 0.3, 1) forwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes heroTitleIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.hero__title::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(167, 184, 163, 0.35), transparent 70%);
-  top: 50%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-  filter: blur(80px);
-  animation: floatGlow 30s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes floatGlow {
-  0%   { transform: translate(-50%, -85%) scale(0.9); animation-timing-function: ease-in; }
-  50%  { transform: translate(-50%, -50%) scale(1.08); animation-timing-function: ease-in-out; }
-  100% { transform: translate(-50%, -85%) scale(0.9); }
-}
-
-.hero__foot {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  /* margin-top: clamp(2.5rem, 7vw, 5rem); */
-  padding-top: 0rem;
-}
-
-.hero__bio {
-  font-family: var(--font-sans);
-  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
-  line-height: 1.6;
-  color: var(--home-ink-2);
-  max-width: 50ch;
-  padding-top: 2rem;
-}
-
-.hero__links {
-  display: flex;
-  gap: 0.625rem;
-  flex-shrink: 0;
-}
-
-.pill-link {
-  display: inline-block;
-  padding: 0.55rem 1.375rem;
-  border: 1px solid var(--home-border);
-  border-radius: 100px;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--home-ink);
+  color: var(--ink-2);
   text-decoration: none;
-  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
-.pill-link:hover {
-  background: var(--home-ink);
-  border-color: var(--home-ink);
-  color: var(--home-bg);
+.home-head__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.home-head__link {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+.home-head__link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 /* ─────────────────────────────
    SELECTED WORKS
 ───────────────────────────── */
 .work {
-  padding-block: clamp(2rem, 6vw, 4rem) clamp(9rem, 13vw, 11rem);
+  padding-block: 0 clamp(9rem, 13vw, 11rem);
 }
 
 .work__head {
@@ -182,24 +86,144 @@ body {
   align-items: baseline;
   gap: 1rem;
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .work__index {
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--home-ink-2);
+  color: var(--ink-3);
 }
 
 .work__label {
-  color: var(--home-ink-2) !important;
+  color: var(--ink-3) !important;
 }
 
-.work-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+/* ─────────────────────────────
+   CAROUSEL
+   Centre-snapping scroller: the project in the middle of the
+   screen leads, its neighbours peek in either side, dimmed and
+   scaled back. Full-bleed so "centre" means centre of the
+   screen, not centre of the padded column.
+───────────────────────────── */
+.carousel {
+  --slide-w: clamp(260px, 30vw, 420px);
+  margin-inline: calc(50% - 50vw);
+}
+
+.carousel__viewport {
+  position: relative;
+}
+
+.carousel__track {
+  display: flex;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* half a viewport minus half a slide, so the first and last
+     can still reach the middle */
+  padding-inline: calc(50% - var(--slide-w) / 2);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar { display: none; }
+
+.carousel .work-item {
+  flex: 0 0 var(--slide-w);
+  scroll-snap-align: center;
+  opacity: 0.38;
+  transform: scale(0.9);
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease),
+    border-color var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease);
+}
+
+.carousel .work-item.is-active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+/* Hovering any card brings it out of the dim and holds the carousel.
+   The lift has to carry the scale with it, or hovering would snap the
+   active card back to full size. */
+.carousel .work-item:hover {
+  opacity: 1;
+  transform: scale(0.95) translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.carousel .work-item.is-active:hover { transform: scale(1) translateY(-4px); }
+
+/* ---- the detail panel that replaces the artwork on hover ---- */
+.work-item__detail {
+  position: absolute;
+  inset: 0;
+  /* above the artwork (also z-index 1, but earlier in the DOM) and
+     below .work-item__head, so the project title stays readable */
+  z-index: 1;
+  background: var(--surface);
+  border-radius: inherit;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease);
+}
+
+.work-item:hover .work-item__detail { opacity: 1; }
+
+.work-item__desc {
+  font-size: var(--font-size-base);
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.work-item__cta {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+
+/* ---- dots ---- */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.carousel__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.carousel__dot:hover { background: var(--ink-3); }
+
+/* the one place the accent earns its keep here: which project you are on */
+.carousel__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.3);
 }
 
 .work-item {
@@ -207,34 +231,20 @@ body {
   display: flex;
   flex-direction: column;
   aspect-ratio: 1 / 1.05;
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   padding: clamp(1.5rem, 2.5vw, 2.25rem);
   text-decoration: none;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease), border-color var(--t-slow) var(--ease);
 }
 
 .work-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 48px -24px rgba(37, 37, 35, 0.28);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
-
-.work-item.live-space      { background: var(--background-ls-card); }
-.work-item.forgotten-pages { background: var(--background-fp-card); }
-.work-item.seoul-festival  { background: var(--background-sf-card); }
-.work-item.jeon-stack      { background: var(--background-js-card); }
-.work-item.tesla-coaching    { background: var(--background-tc-card); }
-
-.work-item.live-space .work-item__title,
-.work-item.live-space .work-item__meta      { color: var(--font-color-ls); }
-.work-item.forgotten-pages .work-item__title,
-.work-item.forgotten-pages .work-item__meta { color: var(--font-color-fp); }
-.work-item.seoul-festival .work-item__title,
-.work-item.seoul-festival .work-item__meta  { color: var(--font-color-sf); }
-.work-item.jeon-stack .work-item__title,
-.work-item.jeon-stack .work-item__meta      { color: var(--font-color-js); }
-.work-item.tesla-coaching .work-item__title,
-.work-item.tesla-coaching .work-item__meta      { color: var(--font-color-tc); }
 
 .work-item__head {
   position: relative;
@@ -251,6 +261,7 @@ body {
   font-size: clamp(1.125rem, 1.6vw, 1.375rem);
   letter-spacing: -0.01em;
   max-width: 60%;
+  color: var(--ink-1);
 }
 
 .work-item__meta {
@@ -258,7 +269,7 @@ body {
   font-size: 0.8125rem;
   text-align: right;
   max-width: 42%;
-  opacity: 0.85;
+  color: var(--ink-2);
 }
 
 .work-item__media {
@@ -272,15 +283,21 @@ body {
   overflow: hidden;
 }
 
+/* Cut-out artwork sits directly on the card — no frame, no shadow box */
 .work-item__img {
   max-width: 92%;
   max-height: 92%;
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.45);
-  transition: transform 0.5s var(--ease);
+  transition: transform var(--t-slower) var(--ease);
+}
+
+/* Media that fills its own rectangle gets a hairline edge instead */
+.work-item.jeon-stack .work-item__img,
+.work-item__img_Seoul {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }
 
 .work-item__img_Seoul {
@@ -289,37 +306,17 @@ body {
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.45);
-  transition: transform 0.5s var(--ease);
+  transition: transform var(--t-slower) var(--ease);
 }
 
-.work-item:hover .work-item__img {
-  transform: scale(1.04);
+.work-item:hover .work-item__img,
+.work-item:hover .work-item__img_Seoul {
+  transform: scale(1.03);
 }
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
   html, body { overflow: auto; }
-
-  .hero {
-    flex-direction: column;
-    min-height: 0;
-  }
-
-  .hero__content {
-    flex: none;
-  }
-
-  .hero__pattern {
-    height: 340px;
-  }
-
-  .hero__meta { margin-bottom: 2.25rem; }
-
-  .work-list {
-    grid-template-columns: 1fr;
-  }
 
   .work-item {
     aspect-ratio: 4 / 3.6;

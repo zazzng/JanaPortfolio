@@ -1,173 +1,16 @@
 /* ============================================================
-   JEON STACK — Card-style case study
-   Outer: near-black deep green (#030c07)
-   Card:  deep forest green (#0d2b22) — the page itself is the card
+   JEON STACK — project-specific styles only
+   ============================================================
+   Shared card, sections, rules, next-project and reveal all
+   live in case-study.css.
    ============================================================ */
 
 :root {
-  --js-card:   #0d2b22;
-  --js-ink:    #f0ece6;
-  --js-mid: white;
-  --js-muted:  rgba(240, 236, 230, 0.42);
-  --font-size-base: 1rem;
+  --js-muted: var(--ink-3);
 }
 
-/* ── Page base ── */
-body {
-  background: var(--outer);
-  color: var(--js-ink);
-  min-height: 100vh;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-  background-image: url(../assets/World/texture.png);
-  background-repeat: repeat;
-  opacity: 0.05;
-}
-
-/* ============================================================
-   OUTER NAV — sits on the dark outer background
-   ============================================================ */
-
-.outer-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0.75rem 1.5rem;
-  top: 0;
-  z-index: 200;
-  position: sticky;
-}
-
-.close {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--close-button);
-  color: var(--close-button-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  text-decoration: none;
-  flex-shrink: 0;
-  order: 1;
-  transition: background 0.2s, color 0.2s;
-}
-
-.close:hover { 
-  background: var(--close-hover-button-bg);
-  color: var(--close-hover-button-text);
-}
-
-/* ============================================================
-   PROJECT NAVIGATION STACK
-   Peek card sits behind the hero card; only its top 16px strip
-   is visible. Hero is pushed down 16px to expose the strip.
-   ============================================================ */
-
-.js-stack {
-  position: relative;
-}
-
-/* Hero flows naturally — pushed down 60px so peek strips are visible above it */
-.js-stack .js-hero-card {
-  position: relative;
-  margin-top: 80px;
-  min-height: unset;
-  z-index: 4;
-  will-change: transform;
-  transition: transform 200ms ease-out;
-}
-
-.js-peek-card {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 32px;
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 4px;
-  text-decoration: none;
-  cursor: pointer;
-  will-change: transform;
-  transition: transform 200ms ease-out;
-}
-
-
-/* Positions by DOM order */
-.js-peek-card:nth-child(1) { top: 0;    z-index: 1; }
-.js-peek-card:nth-child(2) { top: 20px; z-index: 2; }
-.js-peek-card:nth-child(3) { top: 40px; z-index: 3; }
-.js-peek-card:nth-child(4) { top: 60px; z-index: 4; }
-
-/* Colors by project */
-.js-peek-card--forgotten { background: var(--background-fp-card); }
-.js-peek-card--livespace { background: var(--background-ls-card); }
-.js-peek-card--seoul     { background: var(--background-sf-card); }
-.js-peek-card--tesla     { background: var(--background-tc-card); }
-
-/* Hover */
-.js-peek-card:hover ~ .js-peek-card,
-.js-peek-card:hover ~ .js-hero-card {
-  transform: translateY(7px);
-}
-
-.js-peek-card__label {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: opacity 150ms ease-out;
-}
-
-.js-peek-card--forgotten .js-peek-card__label { color: var(--font-color-fp); }
-.js-peek-card--livespace .js-peek-card__label { color: var(--font-color-ls); }
-.js-peek-card--seoul     .js-peek-card__label { color: var(--font-color-sf); }
-.js-peek-card--tesla     .js-peek-card__label { color: var(--font-color-tc); }
-
-.js-peek-card:hover .js-peek-card__label {
-  opacity: 1;
-}
-
-/* ============================================================
-   MAIN WRAPPER — constrains and centers the cards
-   ============================================================ */
-
-.js-main {
-  padding: 0 1.25rem 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* ============================================================
-   CARDS — hero (rounded top) + content (rounded bottom)
-   ============================================================ */
-
-.js-hero-card,
-.js-content-card {
-  background: var(--js-card);
-}
-
-.js-hero-card    { border-radius: 20px 20px 0 0; overflow: hidden; }
-.js-content-card { border-radius: 0 0 20px 20px; overflow: hidden; }
-
-/* Padded region inside a card */
 .js-pad {
-  padding: 2.25rem 2.5rem;
+  padding: var(--space-5) var(--card-pad) var(--space-5) calc(var(--card-pad) + var(--body-indent));
 }
 
 /* ============================================================
@@ -175,59 +18,63 @@ body::before {
    ============================================================ */
 
 .js-title {
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--js-ink);
-  margin: 0 0 2.5rem;
-  display: flex;
-  letter-spacing: 0.10rem;
-  text-transform: uppercase;
-  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
   font-weight: 700;
-  font-size: 1rem;
-  gap: 0.5rem;
+  letter-spacing: -0.015em;
+  color: var(--ink-1);
+  margin: 0 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
 }
 
+.js-brand-mark { color: var(--accent); font-size: 0.55em; }
+
+/* Quote then tags, stacked and sharing the same left edge */
 .js-tagline {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .js-tagline__quote {
-  font-style: italic;
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-  color: var(--js-ink);
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  line-height: 1.4;
+  color: var(--ink-1);
   margin: 0;
-  padding-left:20rem;
+  max-width: 46ch;
 }
 
 .js-tagline__tags {
-  font-size: var(--font-size-base);
-  text-align: right;
+  font-size: 0.875rem;
+  color: var(--ink-3);
   line-height: 1.65;
   margin: 0;
-  max-width: 25ch;
 }
 
 /* ============================================================
-   PHOTO STRIP — full card width, bleeds to card edges
+   PHOTO STRIP — framed, full card width
    ============================================================ */
 
 .js-strip {
-  margin-top: 2.5rem;
+  margin-top: var(--space-4);
   transform: translateY(var(--parallax-y, 0px));
   will-change: transform;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .js-strip img {
   width: 100%;
-  height: clamp(100%, 22vw, 240px);
+  height: clamp(160px, 22vw, 320px);
   object-fit: cover;
   display: block;
-  border-radius: 20px;
 }
 
 /* ============================================================
@@ -236,17 +83,18 @@ body::before {
 
 .js-credits-block {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.25rem;
-  /* align-items: center; */
-  margin-top: 2.75rem;
-  margin-bottom: 2.75rem;
-  min-height: calc(130vh - 64px);
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+  align-items: start;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
 }
 
+/* Cut-out photograph — no frame */
 .js-lamp-photo {
+  grid-column: 1 / 6;
   line-height: 0;
-  transform: translateX(15rem) translateY(var(--parallax-y, 0px));
+  transform: translateY(var(--parallax-y, 0px));
   will-change: transform;
 }
 
@@ -257,7 +105,8 @@ body::before {
 }
 
 .js-credits-content {
-  padding-top: 20rem;
+  grid-column: 6 / 13;
+  padding-top: var(--space-2);
 }
 
 .js-credits-list {
@@ -270,7 +119,7 @@ body::before {
 
 .js-credits-list dt {
   font-size: var(--font-size-base);
-  color: var(--js-muted);
+  color: var(--ink-3);
   font-weight: 500;
   white-space: nowrap;
   align-self: baseline;
@@ -278,7 +127,7 @@ body::before {
 
 .js-credits-list dd {
   font-size: var(--font-size-base);
-  color: var(--js-mid);
+  color: var(--ink-1);
   margin: 0;
   align-self: baseline;
 }
@@ -286,9 +135,8 @@ body::before {
 .js-credits-note {
   font-size: var(--font-size-base);
   line-height: 1.7;
-  color: var(--js-mid);
+  color: var(--ink-2);
   margin: 0;
-  padding-right: 20rem;
 }
 
 /* ============================================================
@@ -296,10 +144,12 @@ body::before {
    ============================================================ */
 
 .js-pullquote {
-  font-size: var(--font-size-base);
-  color: var(--js-mid);
-  padding-right: 20rem;
-  margin-top: 30rem;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 500;
+  color: var(--ink-1);
+  margin-top: var(--space-5);
+  max-width: 44ch;
+  line-height: 1.4;
 }
 
 /* ============================================================
@@ -307,65 +157,84 @@ body::before {
    ============================================================ */
 
 .js-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  padding-left: 20rem;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+  display: grid;
+  /* minmax(0, 1fr) not plain 1fr: 1fr means minmax(auto, 1fr), so a wide
+     image's intrinsic size can force the tracks past the container and
+     overflow the card */
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
 }
+
+.js-section > * { grid-column: 1 / 9; }
+
 
 .js-section:first-child {
   padding-top: 0;
   border-top: none;
 }
 
-.js-section--last {
+.js-section--last:last-child {
   padding-bottom: 0;
 }
 
+
+
+
 .js-section__label {
-  font-size: var(--font-size-base);
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: var(--js-ink);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
   margin: 0 0 1rem;
-  letter-spacing: 0.005em;
 }
 
 .js-section p {
   font-size: var(--font-size-base);
   line-height: 1.75;
-  color: var(--js-mid);
+  color: var(--ink-2);
   margin: 0 0 1.125rem;
-  padding-right: 40rem;
 }
 
 .js-section p:last-child { margin-bottom: 0; }
+
+/* credits sit on the same rhythm as a paragraph */
+.js-section .js-ack-list {
+  margin-bottom: 1.125rem;
+}
 
 /* ── ArUco markers ── */
 .js-markers {
   display: flex;
   gap: 1rem;
-  margin: 1.25rem 0 1rem;
+  margin-block: 1.25rem 1rem;
 }
 
 .js-markers img {
   width: 20%;
   height: auto;
   display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .js-caption {
-  font-size: var(--font-size-base) !important;
-  color: var(--js-muted) !important;
+  font-size: 0.875rem !important;
+  color: var(--ink-3) !important;
   line-height: 1.6;
   margin: 0 0 1.125rem !important;
 }
 
 /* ── System diagram ── */
 .js-diagram {
-  border-radius: 12px;
+  /* border: 1px solid var(--border); */
+  border-radius: var(--radius-md);
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
   margin-top: 1.25rem;
-  width: 90%
+  width: 130%;
 }
 
 .js-diagram img {
@@ -376,16 +245,13 @@ body::before {
 
 /* ── Video ── */
 .js-video {
-  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  background: var(--outer);
+  background: var(--surface);
   margin-top: 1rem;
-  width: 90%;
-  height:90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 150%;
 }
 
 .js-video iframe {
@@ -393,7 +259,26 @@ body::before {
   height: 100%;
   border: none;
   display: block;
-  border-radius: 10px;
+}
+
+/* ── Diagram and video sit on screen centre ──
+   Everything else on the page lines up with the text column, but these
+   two read better balanced on the middle of the screen. They span the
+   whole row and sit symmetrically inside the card, so their centre lands
+   on the card's midline — and the card being near full-bleed, on the
+   centre of the screen. */
+.js-section > .js-diagram,
+.js-section > .js-video {
+  grid-column: 1 / -1;
+  /* Auto-margins cannot centre a box wider than its container, so these
+     do not use the half-indent shift the other media use. Instead the
+     left indent is cancelled, which makes the box symmetric inside the
+     card on its own — the same trick the photo strip uses. Overrides the
+     150% width, which was wider than the card and could not be centred
+     without running off screen. */
+  width: auto;
+  margin-left: calc(var(--body-indent) * -1);
+  margin-right: 0;
 }
 
 /* ── What I worked on ── */
@@ -406,74 +291,7 @@ body::before {
 .js-work-item {
   font-size: var(--font-size-base);
   line-height: 1.6;
-  color: var(--js-mid);
-}
-
-/* ============================================================
-   NEXT PROJECT (dark, outside cards)
-   ============================================================ */
-
-.js-next {
-  padding: 1.5rem 8rem 0.5rem;
-  display:flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.js-next-label {
-  display: block;
-  font-size: var(--font-size-base);
-  color: var(--next-label);
-  font-weight: 500;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-}
-
-.js-next-link {
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--next-link);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.js-next-link:hover { color: var(--next-hover-link); }
-
-/* ============================================================
-   SCROLL ANIMATIONS
-   ============================================================ */
-
-[data-animate] {
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: transform, opacity;
-  transition:
-    opacity  820ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-[data-animate="fade-only"] {
-  opacity: 0;
-  transform: none;
-  will-change: opacity;
-  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-[data-animate="illustration"] {
-  opacity: 0;
-  transform: translateY(35px);
-  will-change: transform, opacity;
-  transition:
-    opacity  950ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-[data-animate].revealed,
-[data-animate="fade-only"].revealed,
-[data-animate="illustration"].revealed {
-  opacity: 1;
-  transform: translateY(0);
+  color: var(--ink-2);
 }
 
 /* ============================================================
@@ -481,19 +299,7 @@ body::before {
    ============================================================ */
 
 @media (max-width: 640px) {
-  .js-main { padding: 0 0.75rem 2rem; }
-
-  .js-pad { padding: 1.75rem 1.5rem; }
-
-  .js-hero-card    { border-radius: 16px 16px 0 0; }
-  .js-content-card { border-radius: 0 0 16px 16px; }
-
-  .js-tagline {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .js-tagline__tags { text-align: left; }
+  .js-pad { padding: var(--space-4) var(--card-pad); }
 
   .js-strip img { height: 140px; }
 
@@ -502,13 +308,39 @@ body::before {
     gap: 1.25rem;
   }
 
-  .js-pullquote {
-    text-align: left;
-    padding-left: 0;
-  }
+  .js-lamp-photo,
+  .js-credits-content { grid-column: auto; }
 
   .js-section {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    grid-template-columns: 1fr;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
   }
+
+  .js-section > * { grid-column: auto; }
+}
+
+/* ============================================================
+   SECTION RULES — on the body measure, not the full card
+   ============================================================ */
+
+.js-section { position: relative; }
+
+.js-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(var(--rule-w), 100%);
+  height: 1px;
+  background: var(--rule-color);
+}
+
+.js-section:first-child::before { display: none; }
+
+/* The strip closes the hero, so the card itself carries the space
+   below it — as padding, not a margin, so the white runs all the
+   way to the rule instead of breaking the card in two. */
+.js-hero-card {
+  padding-bottom: clamp(4rem, 10vh, 7.5rem);
 }

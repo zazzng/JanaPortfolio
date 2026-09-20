@@ -1,0 +1,423 @@
+/* ============================================================
+   CASE STUDY — shared design for every project page
+   ============================================================
+   Everything the five case studies have in common lives here:
+   the card, its margins and radii, section rhythm, body copy,
+   section rules, the next-project block and the scroll reveal.
+
+   Change a value here and it applies to ALL projects.
+
+   Load order matters:
+     base.css  ->  case-study.css  ->  <project>.css
+   so a project file can still override anything below.
+
+   Anything genuinely unique to one project (hero composition,
+   bespoke components) stays in that project's own file.
+   ============================================================ */
+
+/* ---- Page base ---- */
+body {
+  min-height: 100vh;
+}
+
+/* ============================================================
+   OUTER NAVIGATION — the close button
+   ============================================================ */
+
+.outer-nav, .outer-nav, .outer-nav, .outer-nav, .outer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.outer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--close-button);
+  border: 1px solid var(--close-button-border);
+  color: var(--close-button-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  order: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.close:hover {
+  background: var(--close-hover-button-bg);
+  border-color: var(--close-hover-button-bg);
+  color: var(--close-hover-button-text);
+}
+
+/* ============================================================
+   THE CARD
+   Hero and content stack together into one continuous card
+   sitting on the page ground.
+   ============================================================ */
+
+.ls-main, .fp-main, .js-main, .sf-main, .tc-main,
+.ab-main {
+  padding: 0 var(--card-inset) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ls-hero-card, .fp-hero-card, .js-hero-card, .sf-hero-card, .tc-hero-card,
+.ls-content-card, .fp-content-card, .js-content-card, .sf-content-card, .tc-content-card,
+.ab-hero-card,
+.ab-content-card {
+  background: var(--surface);
+}
+
+.ls-hero-card, .fp-hero-card, .js-hero-card, .sf-hero-card, .tc-hero-card,
+.ab-hero-card {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.ls-content-card, .fp-content-card, .js-content-card, .sf-content-card, .tc-content-card,
+.ab-content-card {
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 0;
+  position: relative;
+}
+
+/* ============================================================
+   CARD STACK
+   The projects that used to wait behind the active card are
+   gone — only the current card shows. The wrapper stays as the
+   positioning context for the scroll-to-advance gesture.
+   ============================================================ */
+
+.ls-stack, .fp-stack, .js-stack, .sf-stack, .tc-stack,
+.ab-stack {
+  position: relative;
+}
+
+.ls-stack .ls-hero-card, .fp-stack .fp-hero-card, .js-stack .js-hero-card, .sf-stack .sf-hero-card, .tc-stack .tc-hero-card,
+.ab-stack .ab-hero-card {
+  position: relative;
+  z-index: 5;
+}
+
+.ls-peek-card, .fp-peek-card, .js-peek-card, .sf-peek-card, .tc-peek-card,
+.ab-peek-card {
+  display: none;
+}
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+
+.ls-card-section, .fp-card-section, .js-card-section, .sf-card-section, .tc-card-section,
+.ab-card-section {
+  padding: var(--space-6) var(--card-pad) var(--space-6) calc(var(--card-pad) + var(--body-indent));
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+/* Small uppercase section marker */
+.ls-section-label, .fp-section-label, .js-section-label, .sf-section-label, .tc-section-label ,
+.js-section__label,
+.ab-section-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Body copy */
+.ls-content-card p, .fp-content-card p, .js-content-card p, .sf-content-card p, .tc-content-card p,
+.ab-content-card p {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.ls-content-card strong, .fp-content-card strong, .js-content-card strong, .sf-content-card strong, .tc-content-card strong,
+.ab-content-card strong {
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.ls-content-card a, .fp-content-card a, .js-content-card a, .sf-content-card a, .tc-content-card a,
+.ab-content-card a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ls-content-card a:hover, .fp-content-card a:hover, .js-content-card a:hover, .sf-content-card a:hover, .tc-content-card a:hover,
+.ab-content-card a:hover {
+  color: var(--accent-hover);
+}
+
+/* ============================================================
+   SECTION RULES
+   A rule that breaks the page runs the width of the body
+   measure rather than the full card, so it reads as a section
+   break instead of a page break.
+   ============================================================ */
+
+.ls-card-section::after, .fp-card-section::after, .js-card-section::after, .sf-card-section::after, .tc-card-section::after,
+.ab-card-section::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--card-pad) + var(--body-indent));
+  bottom: 0;
+  width: min(var(--rule-w), calc(100% - var(--card-pad) * 2 - var(--body-indent)));
+  height: 1px;
+  background: var(--rule-color);
+}
+
+/* hero -> content divider, on the same measure */
+.ls-content-card::before, .fp-content-card::before, .js-content-card::before, .sf-content-card::before, .tc-content-card::before,
+.ab-content-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(var(--card-pad) + var(--body-indent));
+  width: min(var(--rule-w), calc(100% - var(--card-pad) * 2 - var(--body-indent)));
+  height: 1px;
+  background: var(--rule-color);
+}
+
+.ls-content-card > *:last-child::after, .fp-content-card > *:last-child::after, .js-content-card > *:last-child::after, .sf-content-card > *:last-child::after, .tc-content-card > *:last-child::after,
+.ab-content-card > *:last-child::after {
+  display: none;
+}
+
+/* ============================================================
+   CREDIT / ACKNOWLEDGEMENT LISTS
+   ============================================================ */
+
+.ls-ack-list, .fp-ack-list, .js-ack-list, .sf-ack-list, .tc-ack-list,
+.ab-ack-list {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.5rem 2rem;
+  margin: 0;
+}
+
+.ls-ack-list dt, .fp-ack-list dt, .js-ack-list dt, .sf-ack-list dt, .tc-ack-list dt,
+.ab-ack-list dt {
+  font-size: var(--font-size-base);
+  color: var(--ink-3);
+}
+
+.ls-ack-list dd, .fp-ack-list dd, .js-ack-list dd, .sf-ack-list dd, .tc-ack-list dd,
+.ab-ack-list dd {
+  font-size: var(--font-size-base);
+  color: var(--ink-1);
+  margin: 0;
+}
+
+.ls-ack-inner, .fp-ack-inner, .js-ack-inner, .sf-ack-inner, .tc-ack-inner,
+.ab-ack-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   NEXT PROJECT
+   ============================================================ */
+
+.ls-next, .fp-next, .js-next, .sf-next, .tc-next,
+.ab-next {
+  padding: var(--space-4) var(--gutter) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ls-next-label, .fp-next-label, .js-next-label, .sf-next-label, .tc-next-label,
+.ab-next-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--next-label);
+}
+
+.ls-next-link, .fp-next-link, .js-next-link, .sf-next-link, .tc-next-link,
+.ab-next-link {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--next-link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ls-next-link:hover, .fp-next-link:hover, .js-next-link:hover, .sf-next-link:hover, .tc-next-link:hover,
+.ab-next-link:hover {
+  color: var(--next-hover-link);
+}
+
+/* ============================================================
+   SCROLL REVEAL — subtle, purposeful only
+   ============================================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
+  transition:
+    opacity  520ms var(--ease-out),
+    transform 520ms var(--ease-out);
+}
+
+[data-animate="fade-only"] {
+  opacity: 0;
+  transform: none;
+  will-change: opacity;
+  transition: opacity 460ms var(--ease-out);
+}
+
+[data-animate="illustration"] {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+  transition:
+    opacity  560ms var(--ease-out),
+    transform 560ms var(--ease-out);
+}
+
+[data-animate].revealed,
+[data-animate="fade-only"].revealed,
+[data-animate="illustration"].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .ls-card-section, .fp-card-section, .js-card-section, .sf-card-section, .tc-card-section,
+.ab-card-section {
+    padding: var(--space-5) var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .ls-stack .ls-hero-card, .fp-stack .fp-hero-card, .js-stack .js-hero-card, .sf-stack .sf-hero-card, .tc-stack .tc-hero-card,
+.ab-stack .ab-hero-card {
+    border-radius: 0;
+  }
+
+  .ls-card-section, .fp-card-section, .js-card-section, .sf-card-section, .tc-card-section,
+.ab-card-section {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .ls-next, .fp-next, .js-next, .sf-next, .tc-next,
+.ab-next {
+    padding: var(--space-3) var(--space-3) var(--space-1);
+  }
+}
+
+@media (max-width: 480px) {
+  .ls-main, .fp-main, .js-main, .sf-main, .tc-main,
+.ab-main {
+    padding: 0 var(--space-2) var(--space-4);
+  }
+
+  .outer-nav {
+    padding: 0.625rem 1rem;
+  }
+
+  .ls-ack-list, .fp-ack-list, .js-ack-list, .sf-ack-list, .tc-ack-list,
+.ab-ack-list {
+    grid-template-columns: 6rem 1fr;
+  }
+}
+
+/* ============================================================
+   MEDIA — on the text line unless it outgrows the column
+   ============================================================
+   Pictures line up with the body copy by default, which is
+   simply where the section's padding already puts them. Only
+   media too wide for the text column breaks free and centres
+   on screen, because it has nowhere else to go.
+
+   The text column is the section's content box — at 1440 that
+   is 954px. Only the Jeon Stack photo strip exceeds it.
+   ============================================================ */
+
+/* Wider than the column: sits symmetrically inside the card,
+   which centres it on screen. */
+.js-strip {
+  margin-inline: var(--card-pad);
+}
+
+/* ============================================================
+   BULLET LISTS
+   ============================================================
+   One bullet mechanism for every project. This used to be
+   copy-pasted into each project file, which is exactly how one
+   copy drifted — its marker ended up on the <ul> instead of on
+   each <li> and drew a single stray bullet at the section edge.
+   Change it here and every project follows.
+
+   Projects keep only genuine differences (Seoul runs a tighter
+   list and no measure cap) in their own file.
+   ============================================================ */
+
+.sf-data-list,
+.tc-list,
+.js-problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  max-width: 68ch;
+}
+
+.sf-data-list li,
+.tc-list li,
+.js-problem-list li {
+  font-size: var(--font-size-base);
+  line-height: 1.62;
+  color: var(--ink-2);
+  padding-left: 1.25em;
+  position: relative;
+}
+
+.sf-data-list li::before,
+.tc-list li::before,
+.js-problem-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--ink-3);
+}

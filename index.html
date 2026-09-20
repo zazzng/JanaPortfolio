@@ -13,51 +13,40 @@
 
   <main class="home">
 
-    <!-- ── Hero ── -->
-    <section class="hero">
-      <div class="hero__content">
-        <div class="hero__meta" data-reveal>
-          <span class="hero__index">01</span>
-          <span class="label work__label">JANA</span>
-        </div>
-
-        <h1 class="hero__title" data-reveal="d1">Product Design<br>&amp; Data Analyst</h1>
-
-        <div class="hero__foot">
-          <p class="hero__bio" data-reveal="d2">I'm currently working on product design, using research and data to shape decisions from first insight to final interface.</p>
-          <p class="hero__bio" data-reveal="d2">My career goal is to become a Operations and Experiential Project Manager, dedicated to designing seamless user journeys, managing end-to-end scopes, and driving human-driven initiatives</p>
-          <div class="hero__links" data-reveal="d2">
-            <a href="https://www.linkedin.com/in/jana-n-2a2355323/" class="pill-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
-            <a href="mailto:thn@sfu.ca" class="pill-link" target="_blank" rel="noopener noreferrer">Email</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="hero__pattern" aria-hidden="true">
-        <canvas id="turing-canvas" class="hero__pattern-canvas"></canvas>
-      </div> -->
-    </section>
+    <!-- ── Masthead: name + the way in to About ── -->
+    <header class="home-head">
+      <!-- <a href="aboutme.html" class="home-head__mark">Jana</a> -->
+      <nav class="home-head__nav" aria-label="Primary">
+        <a href="aboutme.html" class="home-head__link">About Jana</a>
+      </nav>
+    </header>
 
     <!-- ── Selected Works ── -->
     <section class="work" id="work">
-      <div class="work__head" data-reveal>
-        <span class="work__index">02</span>
+      <!-- <div class="work__head">
+        <span class="work__index">01</span>
         <span class="label work__label">Selected Works</span>
-      </div>
+      </div> -->
 
-      <div class="work-list">
+      <div class="carousel" data-carousel>
+        <div class="carousel__viewport">
+          <div class="carousel__track">
 
-        <a href="Project/LiveSpace.html" class="work-item live-space" data-reveal>
+        <a href="Project/LiveSpace.html" class="work-item live-space">
           <div class="work-item__head">
             <span class="work-item__title">LiveSpace</span>
-            <span class="work-item__meta">Web Design · UX Design · UI Research</span>
+            <span class="work-item__meta">Web Design · UX · UI</span>
           </div>
           <div class="work-item__media">
             <img src="assets/LiveSpace/Landing.png" alt="LiveSpace project preview" class="work-item__img">
           </div>
+          <div class="work-item__detail">
+            <p class="work-item__desc">A mobile app giving building residents real-time visibility into shared amenities without leaving their unit.</p>
+            <span class="work-item__cta">View project &rarr;</span>
+          </div>
         </a>
 
-        <a href="Project/ForgottenPages.html" class="work-item forgotten-pages" data-reveal>
+        <!-- <a href="Project/ForgottenPages.html" class="work-item forgotten-pages">
           <div class="work-item__head">
             <span class="work-item__title">Forgotten Pages</span>
             <span class="work-item__meta">Game Design</span>
@@ -65,44 +54,64 @@
           <div class="work-item__media">
             <img src="assets/ForgottenPages/Cat.png" alt="Forgotten Pages project preview" class="work-item__img">
           </div>
-        </a>
+          <div class="work-item__detail">
+            <p class="work-item__desc">A puzzle exploration game about recovering a forgotten diary password through spatial exploration and object placement.</p>
+            <span class="work-item__cta">View project &rarr;</span>
+          </div>
+        </a> -->
 
-        <a href="Project/SeoulFestivalAnalytics.html" class="work-item seoul-festival" data-reveal>
+        <a href="Project/SeoulFestivalAnalytics.html" class="work-item seoul-festival">
           <div class="work-item__head">
             <span class="work-item__title">Seoul Festival Analytics</span>
-            <span class="work-item__meta">Data Visualization · Product Design · Web Design</span>
+            <span class="work-item__meta">Data Visualization · Web Design</span>
           </div>
           <div class="work-item__media">
             <img src="assets/SeoulFestival/Cover.png" alt="Seoul Festival Analytics project preview" class="work-item__img_Seoul">
           </div>
+          <div class="work-item__detail">
+            <p class="work-item__desc">A data-driven, interactive web experience that visualizes Seoul's cultural vibrancy through seasonal events, borough comparisons, and dynamic storytelling.</p>
+            <span class="work-item__cta">View project &rarr;</span>
+          </div>
         </a>
 
-        <a href="Project/JeonStack.html" class="work-item jeon-stack" data-reveal>
+        <a href="Project/JeonStack.html" class="work-item jeon-stack">
           <div class="work-item__head">
             <span class="work-item__title">Jeon Stack</span>
-            <span class="work-item__meta">HCI · Tangible Interaction · Creative Technology</span>
+            <span class="work-item__meta">Tangible Interaction · Computational Creativity</span>
           </div>
           <div class="work-item__media">
             <img src="assets/JeonStack/F1.png" alt="Jeon Stack project preview" class="work-item__img">
           </div>
+          <div class="work-item__detail">
+            <p class="work-item__desc">Turning Korean folktales into a hands-on storytelling system through physical book stacking and computer vision.</p>
+            <span class="work-item__cta">View project &rarr;</span>
+          </div>
         </a>
 
-        <a href="Project/TeslaCoaching.html" class="work-item tesla-coaching" data-reveal>
+        <a href="Project/TeslaCoaching.html" class="work-item tesla-coaching">
           <div class="work-item__head">
             <span class="work-item__title">RoadCoach</span>
-            <span class="work-item__meta">UX Research · UI Design · In-Car Product Concept</span>
+            <span class="work-item__meta">UX · UI · In-Car Product Concept</span>
           </div>
           <div class="work-item__media work-item__media--empty">
             <img src="assets/TeslaCoaching/Driving1.png" alt="RoadCoach project preview" class="work-item__img">
           </div>
+          <div class="work-item__detail">
+            <p class="work-item__desc">An AI co-coach built into the Tesla ecosystem that turns informal driving instruction in BC into structured, trackable progress, without taking the teaching out of the teacher's hands.</p>
+            <span class="work-item__cta">View project &rarr;</span>
+          </div>
         </a>
 
+          </div>
+        </div>
+
+        <div class="carousel__dots" aria-label="Choose a project"></div>
       </div>
     </section>
 
   </main>
 
-  <script src="js/turingPattern.js" defer></script>
   <script src="js/main.js"></script>
+  <script src="js/carousel.js" defer></script>
 </body>
 </html>
