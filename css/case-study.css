@@ -162,6 +162,18 @@ body {
   margin: 0;
 }
 
+/* ---- Measure ----
+   Copy and bullets wrap on one measure in every project. Left uncapped a
+   line runs the full width of the card, which on a wide window is a 950px
+   line finishing a thumb's width from the card's right edge — hard to read
+   back to the start of, and out of step with the sections that do cap it.
+   A project wanting a tighter measure still sets its own: those files load
+   after this one, so on equal weight they win. */
+.ls-content-card p, .fp-content-card p, .js-content-card p, .sf-content-card p, .tc-content-card p,
+.ls-content-card li, .fp-content-card li, .js-content-card li, .sf-content-card li, .tc-content-card li {
+  max-width: 68ch;
+}
+
 .ls-content-card strong, .fp-content-card strong, .js-content-card strong, .sf-content-card strong, .tc-content-card strong,
 .ab-content-card strong {
   color: var(--ink-1);
@@ -392,7 +404,8 @@ body {
    Change it here and every project follows.
 
    Projects keep only genuine differences (Seoul runs a tighter
-   list and no measure cap) in their own file.
+   list) in their own file. The measure is not one of them — see
+   the Measure rule above; every project wraps on it.
    ============================================================ */
 
 .sf-data-list,

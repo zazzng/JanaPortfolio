@@ -305,5 +305,4 @@
    span the full column rather than the text measure. */
 .sf-data-list {
   gap: 0.25rem;
-  max-width: none;
 }
