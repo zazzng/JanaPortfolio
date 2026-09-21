@@ -45,6 +45,10 @@ body {
 }
 
 .close {
+  /* Pulled in from the right edge so it does not sit hard against the
+     corner of the window. The bar's own padding puts it 1.5rem in; this
+     is the extra nudge on top of that. */
+  margin-right: clamp(0.5rem, 1.5vw, 1.25rem);
   width: 36px;
   height: 36px;
   border-radius: 50%;

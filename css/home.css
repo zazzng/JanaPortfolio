@@ -10,8 +10,14 @@
   --home-gutter: clamp(1.5rem, 6vw, 5rem);
 }
 
+/* The carousel is full-bleed (it breaks out with a negative margin), so the
+   sideways overflow has to be hidden. It must be CLIPPED, not scrolled away:
+   overflow-x:hidden turns both html and body into scroll containers, and that
+   stops the wheel from scrolling the page at all — on a short window the page
+   simply would not move. overflow:clip hides the same overflow without
+   creating a scroll container. */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--bg);
 }
 
@@ -103,13 +109,21 @@ body {
 
 /* ─────────────────────────────
    CAROUSEL
-   Centre-snapping scroller: the project in the middle of the
-   screen leads, its neighbours peek in either side, dimmed and
-   scaled back. Full-bleed so "centre" means centre of the
-   screen, not centre of the padded column.
+   A cover-flow fan. The project in the middle faces you square
+   on; the ones either side are turned away on their vertical
+   axis and pushed back into the distance, so the row reads as
+   one curved shelf receding to both edges. Full-bleed, so
+   "centre" means centre of the screen, not of the padded column.
+
+   The turn and the depth are set per card by carousel.js from
+   how far that card is from the middle — see the projection
+   there. CSS only says how the pieces compose. Everything else
+   (snapping, swiping, the loop) is still plain scrolling
+   underneath: the 3D is decoration laid over a real scroller,
+   never a substitute for it.
 ───────────────────────────── */
 .carousel {
-  --slide-w: clamp(260px, 30vw, 420px);
+  --slide-w: clamp(260px, 23vw, 330px);
   margin-inline: calc(50% - 50vw);
 }
 
@@ -119,50 +133,96 @@ body {
 
 .carousel__track {
   display: flex;
-  gap: clamp(0.5rem, 1.2vw, 1rem);
+  /* The one control for how far apart the cards sit. carousel.js keeps
+     every seam equal to this, whatever the turn, so raising it opens the
+     whole shelf evenly rather than only the ends. */
+  gap: clamp(1rem, 2vw, 1.75rem);
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  /* No CSS scroll-snap here, deliberately. Snapping measures each card's
+     TRANSFORMED box, and the fan moves every box as the track scrolls —
+     so the snap points slide around underneath their own cards and a
+     press lands a little further off centre each time. carousel.js snaps
+     instead, off the layout positions, which the fan cannot disturb. */
   /* half a viewport minus half a slide, so the first and last
      can still reach the middle */
   padding-inline: calc(50% - var(--slide-w) / 2);
-  padding-block: clamp(1.5rem, 4vw, 3rem);
+  /* generous block padding: a card turned toward you leans out of
+     its own box, and the track clips (it is a scroll container) */
+  padding-block: clamp(2.5rem, 5vw, 4rem);
   scrollbar-width: none;
+
+  /* The vanishing point. It sits at the centre of the track's own box —
+     which is the centre of the screen — so the card that scrolls into
+     the middle is the one being looked at straight on. A long focal
+     length keeps the fan calm; shorter would splay it. */
+  perspective: 1500px;
+  perspective-origin: 50% 50%;
 }
 
 .carousel__track::-webkit-scrollbar { display: none; }
 
+/* Portrait, like a print in a rack — the fan reads better on tall
+   cards than on the near-square ones the grid uses. */
 .carousel .work-item {
   flex: 0 0 var(--slide-w);
-  scroll-snap-align: center;
-  opacity: 0.38;
-  transform: scale(0.9);
+  aspect-ratio: 1 / 1.24;
+
+  /* --cf-rot and --cf-z are written by carousel.js on every scroll
+     frame. No transition on transform: the scroll position already
+     animates, and the fan has to track it frame for frame — a
+     transition here would smear the whole shelf a beat behind. */
+  transform:
+    translateX(var(--cf-x, 0px))
+    translateZ(var(--cf-z, 0px))
+    rotateY(var(--cf-rot, 0deg));
+  opacity: var(--cf-fade, 1);
+
+  /* The hover lift lives on the separate `translate` property (see
+     .work-item:hover below) so it can transition on its own while the
+     projection above is rewritten every frame. */
   transition:
-    opacity var(--t-slow) var(--ease),
-    transform var(--t-slow) var(--ease),
-    border-color var(--t-slow) var(--ease),
+    translate var(--t-base) var(--ease),
     box-shadow var(--t-slow) var(--ease);
 }
 
 .carousel .work-item.is-active {
-  opacity: 1;
-  transform: scale(1);
   box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
 }
 
-/* Hovering any card brings it out of the dim and holds the carousel.
-   The lift has to carry the scale with it, or hovering would snap the
-   active card back to full size. */
+/* Hovering a card brings it out of the dim and holds the carousel. */
 .carousel .work-item:hover {
   opacity: 1;
-  transform: scale(0.95) translateY(-4px);
-  border-color: var(--border-strong);
   box-shadow: var(--shadow-md);
 }
 
-.carousel .work-item.is-active:hover { transform: scale(1) translateY(-4px); }
+/* The fan runs narrower cards than the old flat row did, so the header
+   pair gets a tighter gap, a little more room and slightly smaller type —
+   otherwise "Web Design · UX · UI" stacks a word to a line. */
+.carousel .work-item {
+  padding: clamp(1.25rem, 1.8vw, 1.75rem);
+}
+
+.carousel .work-item__head { gap: 0.75rem; }
+
+.carousel .work-item__title {
+  max-width: 55%;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+}
+
+.carousel .work-item__meta {
+  max-width: 45%;
+  font-size: 0.75rem;
+}
+
+/* Cards far out in the fan are nearly transparent and badly
+   foreshortened; they are scenery, not targets. Taking them out of
+   the pointer's way stops a stray cursor from lighting one up or
+   pausing the carousel from across the screen. */
+.carousel .work-item.is-far {
+  pointer-events: none;
+}
 
 /* ---- the detail panel that replaces the artwork on hover ---- */
 .work-item__detail {
@@ -201,12 +261,58 @@ body {
 }
 
 
-/* ---- dots ---- */
+/* ---- arrows + dots ----
+   One cluster centred under the carousel: arrow, dots, arrow. The arrows
+   are deliberately here rather than pinned to the left and right edges of
+   the full-bleed track — at the edges they sit far from the dots and far
+   from the project being read, and on a wide screen they land almost off
+   in the margins. */
+.carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.carousel__arrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink-2);
+  transition:
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
+}
+
+.carousel__arrow svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel__arrow:hover {
+  color: var(--ink-1);
+  border-color: var(--ink-3);
+}
+
+/* a press reads as a nudge in the direction of travel */
+.carousel__arrow:active { background: var(--surface-2); }
+
 .carousel__dots {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: clamp(1rem, 2.5vw, 1.75rem);
 }
 
 .carousel__dot {
@@ -236,14 +342,18 @@ body {
   padding: clamp(1.5rem, 2.5vw, 2.25rem);
   text-decoration: none;
   background: var(--surface);
-  border: 1px solid var(--border);
-  transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease), border-color var(--t-slow) var(--ease);
+  transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
 }
 
+/* The lift rides on `translate`, NEVER on `transform`. The carousel writes
+   the fan (turn, depth, draw-in) into `transform` on every scroll frame,
+   and this rule matches with the same weight but sits later in the file —
+   so a `transform` here would win and replace the whole projection, popping
+   the card flat and throwing it sideways by however far the fan had drawn
+   it in. `translate` is its own property and composes instead. */
 .work-item:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
 }
 
 .work-item__head {
@@ -316,7 +426,7 @@ body {
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  html, body { overflow: auto; }
+  html, body { overflow-x: clip; }
 
   .work-item {
     aspect-ratio: 4 / 3.6;

@@ -92,6 +92,23 @@
 /* trim the tail below the card */
 .ab-main {
   padding-bottom: clamp(0.5rem, 2.5vh, 2.5rem);
+
+  /* The page is meant to sit in one screen, so the card should take the
+     height the sticky nav and the footer link leave over rather than
+     stopping at the height of its own text and leaving a band of bare
+     ground beneath it. 3.75rem is that nav: a 36px button plus its
+     0.75rem of padding top and bottom. svh rather than vh so mobile
+     browser chrome sliding in and out does not change it. */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 3.75rem);
+  min-height: calc(100svh - 3.75rem);
+}
+
+/* The lower half of the card absorbs the slack: the copy stays put
+   under the rule and the card simply runs further down the screen. */
+.ab-content-card {
+  flex: 1 1 auto;
 }
 
 /* ============================================================

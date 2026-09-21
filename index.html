@@ -105,7 +105,24 @@
           </div>
         </div>
 
-        <div class="carousel__dots" aria-label="Choose a project"></div>
+        <!-- Arrows sit either side of the dots rather than out at the screen
+             edges, so the whole control reads as one small cluster under the
+             carousel instead of two stray buttons floating in the margins. -->
+        <div class="carousel__nav">
+          <button type="button" class="carousel__arrow" data-carousel-prev aria-label="Previous project">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 5 L8 12 L15 19" />
+            </svg>
+          </button>
+
+          <div class="carousel__dots" aria-label="Choose a project"></div>
+
+          <button type="button" class="carousel__arrow" data-carousel-next aria-label="Next project">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 5 L16 12 L9 19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
 
