@@ -173,11 +173,17 @@ body {
      frame. No transition on transform: the scroll position already
      animates, and the fan has to track it frame for frame — a
      transition here would smear the whole shelf a beat behind. */
+  /* --cf-face is the only part of this the stylesheet owns: 1 leaves the
+     card at the angle the fan gave it, 0 squares it up to the viewer.
+     Hover flips it, which is what turns a card to the front without
+     touching its position or its depth — so it swings round on the spot
+     instead of jumping. */
   transform:
     translateX(var(--cf-x, 0px))
     translateZ(var(--cf-z, 0px))
-    rotateY(var(--cf-rot, 0deg));
+    rotateY(calc(var(--cf-rot, 0deg) * var(--cf-face, 1)));
   opacity: var(--cf-fade, 1);
+  z-index: var(--cf-layer, 1);
 
   /* The hover lift lives on the separate `translate` property (see
      .work-item:hover below) so it can transition on its own while the
@@ -191,10 +197,28 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Hovering a card brings it out of the dim and holds the carousel. */
+/* Hovering a card brings it out of the dim, squares it up to face you and
+   holds the carousel. It keeps its place in the fan and its distance — only
+   the turn is undone — and it comes to the front so the cards in front of
+   it cannot clip the corner it gains as it flattens. */
 .carousel .work-item:hover {
+  --cf-face: 0;
   opacity: 1;
+  z-index: 200;
   box-shadow: var(--shadow-md);
+}
+
+/* The turn animates ONLY while the shelf is standing still — carousel.js
+   puts this class on the track when scrolling stops and takes it off the
+   moment anything moves. During a scroll the projection is rewritten every
+   frame, and a transition on transform would drag the whole fan along a
+   beat behind the cards. */
+.carousel__track.is-still .work-item {
+  transition:
+    transform var(--t-base) var(--ease),
+    opacity var(--t-base) var(--ease),
+    translate var(--t-base) var(--ease),
+    box-shadow var(--t-slow) var(--ease);
 }
 
 /* The fan runs narrower cards than the old flat row did, so the header

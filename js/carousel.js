@@ -180,6 +180,12 @@
      flattens it — without this the browser would paint the cards in DOM
      order and the right-hand side of the fan would sit on top of the
      middle instead of behind it. */
+  /* A card only animates its turn while the shelf is standing still. Mid
+     scroll the projection is rewritten every frame, and a transition on
+     transform would leave the whole fan trailing a beat behind the cards —
+     so CSS hangs that transition off this class. */
+  function stillness(on) { track.classList.toggle('is-still', on); }
+
   const lastCf = [];
 
   function project(mid) {
@@ -210,7 +216,10 @@
       s.style.setProperty('--cf-z', z + 'px');
       s.style.setProperty('--cf-x', x + 'px');
       s.style.setProperty('--cf-fade', fade);
-      s.style.zIndex = String(100 - Math.round(away * 10));
+      /* Written as a custom property, not as z-index itself: an inline
+         z-index would outrank every stylesheet rule, and the hovered card
+         has to be able to come to the front of the shelf. */
+      s.style.setProperty('--cf-layer', String(100 - Math.round(away * 10)));
       s.classList.toggle('is-far', Math.abs(off) > CF_FAR);
     }
   }
@@ -266,7 +275,10 @@
       measure();
       jump(pos);
       paint();
+      return;                        /* that jump settles again in a moment */
     }
+
+    stillness(true);                 /* at rest: turns may animate now */
   }
 
   /* ---- auto-advance, always forwards ---- */
@@ -295,6 +307,7 @@
   }
 
   track.addEventListener('scroll', function () {
+    stillness(false);
     if (!raf) raf = requestAnimationFrame(function () { paint(); raf = null; });
     clearTimeout(settleTimer);
     settleTimer = setTimeout(onSettle, SETTLE_MS);
@@ -397,6 +410,7 @@
   measure();
   jump(OFFSET);
   paint();
+  stillness(true);
   start();
 
   /* late-loading artwork or fonts can shift the track, so take the
